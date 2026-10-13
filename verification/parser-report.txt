@@ -1,0 +1,933 @@
+Terminals unused in grammar
+
+    "недопустимый символ"
+
+
+Grammar
+
+    0 $accept: input $end
+
+    1 input: statements
+
+    2 statements: ε
+    3           | statements statement
+
+    4 type: "matrix"
+    5     | "number"
+
+    6 statement: type "идентификатор" '=' expr ';'
+    7          | "идентификатор" '=' expr ';'
+    8          | "print" '(' expr ')' ';'
+
+    9 expr: "число"
+   10     | "идентификатор"
+   11     | matrix
+   12     | '(' expr ')'
+   13     | expr '+' expr
+   14     | expr '-' expr
+   15     | expr '*' expr
+   16     | '-' expr
+   17     | '+' expr
+   18     | "идентификатор" '(' opt_args ')'
+
+   19 opt_args: ε
+   20         | args
+
+   21 args: expr
+   22     | args ',' expr
+
+   23 matrix: '[' rows ']'
+   24       | '[' ']'
+
+   25 rows: row
+   26     | rows ',' row
+
+   27 row: '[' opt_numbers ']'
+
+   28 opt_numbers: ε
+   29            | numbers
+
+   30 numbers: signed_number
+   31        | numbers ',' signed_number
+
+   32 signed_number: "число"
+   33              | '-' "число"
+   34              | '+' "число"
+
+
+Terminals, with rules where they appear
+
+    $end (0) 0
+    '(' (40) 8 12 18
+    ')' (41) 8 12 18
+    '*' (42) 15
+    '+' (43) 13 17 34
+    ',' (44) 22 26 31
+    '-' (45) 14 16 33
+    ';' (59) 6 7 8
+    '=' (61) 6 7
+    '[' (91) 23 24 27
+    ']' (93) 23 24 27
+    error (256)
+    "идентификатор" <text> (258) 6 7 10 18
+    "число" <text> (259) 9 32 33 34
+    "matrix" (260) 4
+    "number" (261) 5
+    "print" (262) 8
+    "недопустимый символ" (263)
+    UNARY (264)
+
+
+Nonterminals, with rules where they appear
+
+    $accept (20)
+        on left: 0
+    input (21)
+        on left: 1
+        on right: 0
+    statements <list> (22)
+        on left: 2 3
+        on right: 1 3
+    type <type> (23)
+        on left: 4 5
+        on right: 6
+    statement <stmt> (24)
+        on left: 6 7 8
+        on right: 3
+    expr <expr> (25)
+        on left: 9 10 11 12 13 14 15 16 17 18
+        on right: 6 7 8 12 13 14 15 16 17 21 22
+    opt_args <list> (26)
+        on left: 19 20
+        on right: 18
+    args <list> (27)
+        on left: 21 22
+        on right: 20 22
+    matrix <expr> (28)
+        on left: 23 24
+        on right: 11
+    rows <list> (29)
+        on left: 25 26
+        on right: 23 26
+    row <list> (30)
+        on left: 27
+        on right: 25 26
+    opt_numbers <list> (31)
+        on left: 28 29
+        on right: 27
+    numbers <list> (32)
+        on left: 30 31
+        on right: 29 31
+    signed_number <expr> (33)
+        on left: 32 33 34
+        on right: 30 31
+
+
+State 0
+
+    0 $accept: • input $end
+    1 input: • statements
+    2 statements: ε •
+    3           | • statements statement
+
+    $default  reduce using rule 2 (statements)
+
+    input       go to state 1
+    statements  go to state 2
+
+
+State 1
+
+    0 $accept: input • $end
+
+    $end  shift, and go to state 3
+
+
+State 2
+
+    1 input: statements •  [$end]
+    3 statements: statements • statement
+    4 type: • "matrix"
+    5     | • "number"
+    6 statement: • type "идентификатор" '=' expr ';'
+    7          | • "идентификатор" '=' expr ';'
+    8          | • "print" '(' expr ')' ';'
+
+    "идентификатор"  shift, and go to state 4
+    "matrix"         shift, and go to state 5
+    "number"         shift, and go to state 6
+    "print"          shift, and go to state 7
+
+    $default  reduce using rule 1 (input)
+
+    type       go to state 8
+    statement  go to state 9
+
+
+State 3
+
+    0 $accept: input $end •
+
+    $default  accept
+
+
+State 4
+
+    7 statement: "идентификатор" • '=' expr ';'
+
+    '='  shift, and go to state 10
+
+
+State 5
+
+    4 type: "matrix" •
+
+    $default  reduce using rule 4 (type)
+
+
+State 6
+
+    5 type: "number" •
+
+    $default  reduce using rule 5 (type)
+
+
+State 7
+
+    8 statement: "print" • '(' expr ')' ';'
+
+    '('  shift, and go to state 11
+
+
+State 8
+
+    6 statement: type • "идентификатор" '=' expr ';'
+
+    "идентификатор"  shift, and go to state 12
+
+
+State 9
+
+    3 statements: statements statement •
+
+    $default  reduce using rule 3 (statements)
+
+
+State 10
+
+    7 statement: "идентификатор" '=' • expr ';'
+    9 expr: • "число"
+   10     | • "идентификатор"
+   11     | • matrix
+   12     | • '(' expr ')'
+   13     | • expr '+' expr
+   14     | • expr '-' expr
+   15     | • expr '*' expr
+   16     | • '-' expr
+   17     | • '+' expr
+   18     | • "идентификатор" '(' opt_args ')'
+   23 matrix: • '[' rows ']'
+   24       | • '[' ']'
+
+    "идентификатор"  shift, and go to state 13
+    "число"          shift, and go to state 14
+    '+'              shift, and go to state 15
+    '-'              shift, and go to state 16
+    '('              shift, and go to state 17
+    '['              shift, and go to state 18
+
+    expr    go to state 19
+    matrix  go to state 20
+
+
+State 11
+
+    8 statement: "print" '(' • expr ')' ';'
+    9 expr: • "число"
+   10     | • "идентификатор"
+   11     | • matrix
+   12     | • '(' expr ')'
+   13     | • expr '+' expr
+   14     | • expr '-' expr
+   15     | • expr '*' expr
+   16     | • '-' expr
+   17     | • '+' expr
+   18     | • "идентификатор" '(' opt_args ')'
+   23 matrix: • '[' rows ']'
+   24       | • '[' ']'
+
+    "идентификатор"  shift, and go to state 13
+    "число"          shift, and go to state 14
+    '+'              shift, and go to state 15
+    '-'              shift, and go to state 16
+    '('              shift, and go to state 17
+    '['              shift, and go to state 18
+
+    expr    go to state 21
+    matrix  go to state 20
+
+
+State 12
+
+    6 statement: type "идентификатор" • '=' expr ';'
+
+    '='  shift, and go to state 22
+
+
+State 13
+
+   10 expr: "идентификатор" •  ['+', '-', '*', ';', ')', ',']
+   18     | "идентификатор" • '(' opt_args ')'
+
+    '('  shift, and go to state 23
+
+    $default  reduce using rule 10 (expr)
+
+
+State 14
+
+    9 expr: "число" •
+
+    $default  reduce using rule 9 (expr)
+
+
+State 15
+
+    9 expr: • "число"
+   10     | • "идентификатор"
+   11     | • matrix
+   12     | • '(' expr ')'
+   13     | • expr '+' expr
+   14     | • expr '-' expr
+   15     | • expr '*' expr
+   16     | • '-' expr
+   17     | • '+' expr
+   17     | '+' • expr
+   18     | • "идентификатор" '(' opt_args ')'
+   23 matrix: • '[' rows ']'
+   24       | • '[' ']'
+
+    "идентификатор"  shift, and go to state 13
+    "число"          shift, and go to state 14
+    '+'              shift, and go to state 15
+    '-'              shift, and go to state 16
+    '('              shift, and go to state 17
+    '['              shift, and go to state 18
+
+    expr    go to state 24
+    matrix  go to state 20
+
+
+State 16
+
+    9 expr: • "число"
+   10     | • "идентификатор"
+   11     | • matrix
+   12     | • '(' expr ')'
+   13     | • expr '+' expr
+   14     | • expr '-' expr
+   15     | • expr '*' expr
+   16     | • '-' expr
+   16     | '-' • expr
+   17     | • '+' expr
+   18     | • "идентификатор" '(' opt_args ')'
+   23 matrix: • '[' rows ']'
+   24       | • '[' ']'
+
+    "идентификатор"  shift, and go to state 13
+    "число"          shift, and go to state 14
+    '+'              shift, and go to state 15
+    '-'              shift, and go to state 16
+    '('              shift, and go to state 17
+    '['              shift, and go to state 18
+
+    expr    go to state 25
+    matrix  go to state 20
+
+
+State 17
+
+    9 expr: • "число"
+   10     | • "идентификатор"
+   11     | • matrix
+   12     | • '(' expr ')'
+   12     | '(' • expr ')'
+   13     | • expr '+' expr
+   14     | • expr '-' expr
+   15     | • expr '*' expr
+   16     | • '-' expr
+   17     | • '+' expr
+   18     | • "идентификатор" '(' opt_args ')'
+   23 matrix: • '[' rows ']'
+   24       | • '[' ']'
+
+    "идентификатор"  shift, and go to state 13
+    "число"          shift, and go to state 14
+    '+'              shift, and go to state 15
+    '-'              shift, and go to state 16
+    '('              shift, and go to state 17
+    '['              shift, and go to state 18
+
+    expr    go to state 26
+    matrix  go to state 20
+
+
+State 18
+
+   23 matrix: '[' • rows ']'
+   24       | '[' • ']'
+   25 rows: • row
+   26     | • rows ',' row
+   27 row: • '[' opt_numbers ']'
+
+    '['  shift, and go to state 27
+    ']'  shift, and go to state 28
+
+    rows  go to state 29
+    row   go to state 30
+
+
+State 19
+
+    7 statement: "идентификатор" '=' expr • ';'
+   13 expr: expr • '+' expr
+   14     | expr • '-' expr
+   15     | expr • '*' expr
+
+    '+'  shift, and go to state 31
+    '-'  shift, and go to state 32
+    '*'  shift, and go to state 33
+    ';'  shift, and go to state 34
+
+
+State 20
+
+   11 expr: matrix •
+
+    $default  reduce using rule 11 (expr)
+
+
+State 21
+
+    8 statement: "print" '(' expr • ')' ';'
+   13 expr: expr • '+' expr
+   14     | expr • '-' expr
+   15     | expr • '*' expr
+
+    '+'  shift, and go to state 31
+    '-'  shift, and go to state 32
+    '*'  shift, and go to state 33
+    ')'  shift, and go to state 35
+
+
+State 22
+
+    6 statement: type "идентификатор" '=' • expr ';'
+    9 expr: • "число"
+   10     | • "идентификатор"
+   11     | • matrix
+   12     | • '(' expr ')'
+   13     | • expr '+' expr
+   14     | • expr '-' expr
+   15     | • expr '*' expr
+   16     | • '-' expr
+   17     | • '+' expr
+   18     | • "идентификатор" '(' opt_args ')'
+   23 matrix: • '[' rows ']'
+   24       | • '[' ']'
+
+    "идентификатор"  shift, and go to state 13
+    "число"          shift, and go to state 14
+    '+'              shift, and go to state 15
+    '-'              shift, and go to state 16
+    '('              shift, and go to state 17
+    '['              shift, and go to state 18
+
+    expr    go to state 36
+    matrix  go to state 20
+
+
+State 23
+
+    9 expr: • "число"
+   10     | • "идентификатор"
+   11     | • matrix
+   12     | • '(' expr ')'
+   13     | • expr '+' expr
+   14     | • expr '-' expr
+   15     | • expr '*' expr
+   16     | • '-' expr
+   17     | • '+' expr
+   18     | • "идентификатор" '(' opt_args ')'
+   18     | "идентификатор" '(' • opt_args ')'
+   19 opt_args: ε •  [')']
+   20         | • args
+   21 args: • expr
+   22     | • args ',' expr
+   23 matrix: • '[' rows ']'
+   24       | • '[' ']'
+
+    "идентификатор"  shift, and go to state 13
+    "число"          shift, and go to state 14
+    '+'              shift, and go to state 15
+    '-'              shift, and go to state 16
+    '('              shift, and go to state 17
+    '['              shift, and go to state 18
+
+    $default  reduce using rule 19 (opt_args)
+
+    expr      go to state 37
+    opt_args  go to state 38
+    args      go to state 39
+    matrix    go to state 20
+
+
+State 24
+
+   13 expr: expr • '+' expr
+   14     | expr • '-' expr
+   15     | expr • '*' expr
+   17     | '+' expr •  ['+', '-', '*', ';', ')', ',']
+
+    $default  reduce using rule 17 (expr)
+
+    Conflict between rule 17 and token '+' resolved as reduce ('+' < UNARY).
+    Conflict between rule 17 and token '-' resolved as reduce ('-' < UNARY).
+    Conflict between rule 17 and token '*' resolved as reduce ('*' < UNARY).
+
+
+State 25
+
+   13 expr: expr • '+' expr
+   14     | expr • '-' expr
+   15     | expr • '*' expr
+   16     | '-' expr •  ['+', '-', '*', ';', ')', ',']
+
+    $default  reduce using rule 16 (expr)
+
+    Conflict between rule 16 and token '+' resolved as reduce ('+' < UNARY).
+    Conflict between rule 16 and token '-' resolved as reduce ('-' < UNARY).
+    Conflict between rule 16 and token '*' resolved as reduce ('*' < UNARY).
+
+
+State 26
+
+   12 expr: '(' expr • ')'
+   13     | expr • '+' expr
+   14     | expr • '-' expr
+   15     | expr • '*' expr
+
+    '+'  shift, and go to state 31
+    '-'  shift, and go to state 32
+    '*'  shift, and go to state 33
+    ')'  shift, and go to state 40
+
+
+State 27
+
+   27 row: '[' • opt_numbers ']'
+   28 opt_numbers: ε •  [']']
+   29            | • numbers
+   30 numbers: • signed_number
+   31        | • numbers ',' signed_number
+   32 signed_number: • "число"
+   33              | • '-' "число"
+   34              | • '+' "число"
+
+    "число"  shift, and go to state 41
+    '+'      shift, and go to state 42
+    '-'      shift, and go to state 43
+
+    $default  reduce using rule 28 (opt_numbers)
+
+    opt_numbers    go to state 44
+    numbers        go to state 45
+    signed_number  go to state 46
+
+
+State 28
+
+   24 matrix: '[' ']' •
+
+    $default  reduce using rule 24 (matrix)
+
+
+State 29
+
+   23 matrix: '[' rows • ']'
+   26 rows: rows • ',' row
+
+    ','  shift, and go to state 47
+    ']'  shift, and go to state 48
+
+
+State 30
+
+   25 rows: row •
+
+    $default  reduce using rule 25 (rows)
+
+
+State 31
+
+    9 expr: • "число"
+   10     | • "идентификатор"
+   11     | • matrix
+   12     | • '(' expr ')'
+   13     | • expr '+' expr
+   13     | expr '+' • expr
+   14     | • expr '-' expr
+   15     | • expr '*' expr
+   16     | • '-' expr
+   17     | • '+' expr
+   18     | • "идентификатор" '(' opt_args ')'
+   23 matrix: • '[' rows ']'
+   24       | • '[' ']'
+
+    "идентификатор"  shift, and go to state 13
+    "число"          shift, and go to state 14
+    '+'              shift, and go to state 15
+    '-'              shift, and go to state 16
+    '('              shift, and go to state 17
+    '['              shift, and go to state 18
+
+    expr    go to state 49
+    matrix  go to state 20
+
+
+State 32
+
+    9 expr: • "число"
+   10     | • "идентификатор"
+   11     | • matrix
+   12     | • '(' expr ')'
+   13     | • expr '+' expr
+   14     | • expr '-' expr
+   14     | expr '-' • expr
+   15     | • expr '*' expr
+   16     | • '-' expr
+   17     | • '+' expr
+   18     | • "идентификатор" '(' opt_args ')'
+   23 matrix: • '[' rows ']'
+   24       | • '[' ']'
+
+    "идентификатор"  shift, and go to state 13
+    "число"          shift, and go to state 14
+    '+'              shift, and go to state 15
+    '-'              shift, and go to state 16
+    '('              shift, and go to state 17
+    '['              shift, and go to state 18
+
+    expr    go to state 50
+    matrix  go to state 20
+
+
+State 33
+
+    9 expr: • "число"
+   10     | • "идентификатор"
+   11     | • matrix
+   12     | • '(' expr ')'
+   13     | • expr '+' expr
+   14     | • expr '-' expr
+   15     | • expr '*' expr
+   15     | expr '*' • expr
+   16     | • '-' expr
+   17     | • '+' expr
+   18     | • "идентификатор" '(' opt_args ')'
+   23 matrix: • '[' rows ']'
+   24       | • '[' ']'
+
+    "идентификатор"  shift, and go to state 13
+    "число"          shift, and go to state 14
+    '+'              shift, and go to state 15
+    '-'              shift, and go to state 16
+    '('              shift, and go to state 17
+    '['              shift, and go to state 18
+
+    expr    go to state 51
+    matrix  go to state 20
+
+
+State 34
+
+    7 statement: "идентификатор" '=' expr ';' •
+
+    $default  reduce using rule 7 (statement)
+
+
+State 35
+
+    8 statement: "print" '(' expr ')' • ';'
+
+    ';'  shift, and go to state 52
+
+
+State 36
+
+    6 statement: type "идентификатор" '=' expr • ';'
+   13 expr: expr • '+' expr
+   14     | expr • '-' expr
+   15     | expr • '*' expr
+
+    '+'  shift, and go to state 31
+    '-'  shift, and go to state 32
+    '*'  shift, and go to state 33
+    ';'  shift, and go to state 53
+
+
+State 37
+
+   13 expr: expr • '+' expr
+   14     | expr • '-' expr
+   15     | expr • '*' expr
+   21 args: expr •  [')', ',']
+
+    '+'  shift, and go to state 31
+    '-'  shift, and go to state 32
+    '*'  shift, and go to state 33
+
+    $default  reduce using rule 21 (args)
+
+
+State 38
+
+   18 expr: "идентификатор" '(' opt_args • ')'
+
+    ')'  shift, and go to state 54
+
+
+State 39
+
+   20 opt_args: args •  [')']
+   22 args: args • ',' expr
+
+    ','  shift, and go to state 55
+
+    $default  reduce using rule 20 (opt_args)
+
+
+State 40
+
+   12 expr: '(' expr ')' •
+
+    $default  reduce using rule 12 (expr)
+
+
+State 41
+
+   32 signed_number: "число" •
+
+    $default  reduce using rule 32 (signed_number)
+
+
+State 42
+
+   34 signed_number: '+' • "число"
+
+    "число"  shift, and go to state 56
+
+
+State 43
+
+   33 signed_number: '-' • "число"
+
+    "число"  shift, and go to state 57
+
+
+State 44
+
+   27 row: '[' opt_numbers • ']'
+
+    ']'  shift, and go to state 58
+
+
+State 45
+
+   29 opt_numbers: numbers •  [']']
+   31 numbers: numbers • ',' signed_number
+
+    ','  shift, and go to state 59
+
+    $default  reduce using rule 29 (opt_numbers)
+
+
+State 46
+
+   30 numbers: signed_number •
+
+    $default  reduce using rule 30 (numbers)
+
+
+State 47
+
+   26 rows: rows ',' • row
+   27 row: • '[' opt_numbers ']'
+
+    '['  shift, and go to state 27
+
+    row  go to state 60
+
+
+State 48
+
+   23 matrix: '[' rows ']' •
+
+    $default  reduce using rule 23 (matrix)
+
+
+State 49
+
+   13 expr: expr • '+' expr
+   13     | expr '+' expr •  ['+', '-', ';', ')', ',']
+   14     | expr • '-' expr
+   15     | expr • '*' expr
+
+    '*'  shift, and go to state 33
+
+    $default  reduce using rule 13 (expr)
+
+    Conflict between rule 13 and token '+' resolved as reduce (%left '+').
+    Conflict between rule 13 and token '-' resolved as reduce (%left '-').
+    Conflict between rule 13 and token '*' resolved as shift ('+' < '*').
+
+
+State 50
+
+   13 expr: expr • '+' expr
+   14     | expr • '-' expr
+   14     | expr '-' expr •  ['+', '-', ';', ')', ',']
+   15     | expr • '*' expr
+
+    '*'  shift, and go to state 33
+
+    $default  reduce using rule 14 (expr)
+
+    Conflict between rule 14 and token '+' resolved as reduce (%left '+').
+    Conflict between rule 14 and token '-' resolved as reduce (%left '-').
+    Conflict between rule 14 and token '*' resolved as shift ('-' < '*').
+
+
+State 51
+
+   13 expr: expr • '+' expr
+   14     | expr • '-' expr
+   15     | expr • '*' expr
+   15     | expr '*' expr •  ['+', '-', '*', ';', ')', ',']
+
+    $default  reduce using rule 15 (expr)
+
+    Conflict between rule 15 and token '+' resolved as reduce ('+' < '*').
+    Conflict between rule 15 and token '-' resolved as reduce ('-' < '*').
+    Conflict between rule 15 and token '*' resolved as reduce (%left '*').
+
+
+State 52
+
+    8 statement: "print" '(' expr ')' ';' •
+
+    $default  reduce using rule 8 (statement)
+
+
+State 53
+
+    6 statement: type "идентификатор" '=' expr ';' •
+
+    $default  reduce using rule 6 (statement)
+
+
+State 54
+
+   18 expr: "идентификатор" '(' opt_args ')' •
+
+    $default  reduce using rule 18 (expr)
+
+
+State 55
+
+    9 expr: • "число"
+   10     | • "идентификатор"
+   11     | • matrix
+   12     | • '(' expr ')'
+   13     | • expr '+' expr
+   14     | • expr '-' expr
+   15     | • expr '*' expr
+   16     | • '-' expr
+   17     | • '+' expr
+   18     | • "идентификатор" '(' opt_args ')'
+   22 args: args ',' • expr
+   23 matrix: • '[' rows ']'
+   24       | • '[' ']'
+
+    "идентификатор"  shift, and go to state 13
+    "число"          shift, and go to state 14
+    '+'              shift, and go to state 15
+    '-'              shift, and go to state 16
+    '('              shift, and go to state 17
+    '['              shift, and go to state 18
+
+    expr    go to state 61
+    matrix  go to state 20
+
+
+State 56
+
+   34 signed_number: '+' "число" •
+
+    $default  reduce using rule 34 (signed_number)
+
+
+State 57
+
+   33 signed_number: '-' "число" •
+
+    $default  reduce using rule 33 (signed_number)
+
+
+State 58
+
+   27 row: '[' opt_numbers ']' •
+
+    $default  reduce using rule 27 (row)
+
+
+State 59
+
+   31 numbers: numbers ',' • signed_number
+   32 signed_number: • "число"
+   33              | • '-' "число"
+   34              | • '+' "число"
+
+    "число"  shift, and go to state 41
+    '+'      shift, and go to state 42
+    '-'      shift, and go to state 43
+
+    signed_number  go to state 62
+
+
+State 60
+
+   26 rows: rows ',' row •
+
+    $default  reduce using rule 26 (rows)
+
+
+State 61
+
+   13 expr: expr • '+' expr
+   14     | expr • '-' expr
+   15     | expr • '*' expr
+   22 args: args ',' expr •  [')', ',']
+
+    '+'  shift, and go to state 31
+    '-'  shift, and go to state 32
+    '*'  shift, and go to state 33
+
+    $default  reduce using rule 22 (args)
+
+
+State 62
+
+   31 numbers: numbers ',' signed_number •
+
+    $default  reduce using rule 31 (numbers)

@@ -1,0 +1,1 @@
+matrix A=[[1e-200,0],[0,1e-200]]; print(rank(A)); print(inverse(A)); matrix B=[[1e-200,2e-200],[2e-200,4e-200]]; print(rank(B));

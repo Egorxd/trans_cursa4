@@ -1,0 +1,8 @@
+bin\translator.exe examples/size_error.input.mat -o examples/size_error.py
+Код завершения: 1
+
+bin\translator.exe examples/singular_error.input.mat -o examples/singular_error.py
+Код завершения: 0
+
+python examples/singular_error.py
+Код завершения: 1

@@ -1,0 +1,1 @@
+matrix S=[[1,2],[2,4]]; matrix R=[[1,0,1],[0,1,1]]; matrix Z=[[0,0,0],[0,0,0]]; print(rank(S)); print(rank(R)); print(rank(Z)); print(rank([[0]]));

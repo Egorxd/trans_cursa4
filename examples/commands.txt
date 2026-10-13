@@ -1,0 +1,2 @@
+bin\translator.exe examples/input.mat -o examples/output.py
+python examples/output.py

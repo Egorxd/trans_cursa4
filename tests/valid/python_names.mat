@@ -1,0 +1,1 @@
+number class=4; number np=5; number __source=6; number __v0=7; print(class+np+__source+__v0);

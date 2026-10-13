@@ -1,0 +1,4 @@
+make: Entering directory '/mnt/c/Users/user/Desktop/trans_cursa4'
+mkdir -p bin
+cc -std=c11 -O2 -Wall -Wextra -Wpedantic -Werror -static -Isrc -Igenerated src/main.c src/ast.c src/semantic.c src/codegen.c generated/parser.c generated/lexer.c -lm -o bin/translator
+make: Leaving directory '/mnt/c/Users/user/Desktop/trans_cursa4'

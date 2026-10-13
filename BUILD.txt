@@ -1,0 +1,133 @@
+ИНСТРУКЦИЯ ПО СБОРКЕ И ЗАПУСКУ
+Matrix Translator 1.0.0
+
+1. Что нужно для запуска
+
+Готовый bin/translator.exe предназначен для Windows 10/11 x64.
+Готовый bin/translator предназначен для Linux x86_64 и собран статически.
+Для самого транслятора Python и NumPy не нужны. Windows-версия импортирует
+только системные библиотеки Windows/UCRT. Сторонние DLL не требуются.
+
+Для выполнения полученного файла .py требуется Python 3.11 или новее
+и NumPy 2.3.5. Версия NumPy зафиксирована в requirements.txt.
+Рекомендуется Python 3.12 или 3.13 x64.
+
+В Windows откройте PowerShell в папке проекта:
+  powershell -NoProfile -ExecutionPolicy Bypass -File .\setup.ps1
+  .\bin\translator.exe examples/input.mat -o examples/output.py
+  .\.venv\Scripts\python.exe examples/output.py
+
+setup.ps1 создаёт локальное окружение .venv и устанавливает зависимости
+из PyPI. Системные пакеты Python не изменяются. При переносе проекта
+окружение надо пересоздать. Оно не включено в архив сдачи.
+
+При необходимости укажите конкретный Python:
+  .\setup.ps1 -Python 'C:\Path To Python\python.exe'
+
+Для демонстрации можно открыть run_example.bat.
+
+2. Сборка Windows из готовых сгенерированных исходников
+
+Нужен GCC из MSYS2 UCRT64 для Windows x64 с поддержкой C11.
+Проверенная версия GCC: 13.2.0. Flex/Bison в этом варианте не требуются.
+MSYS2: https://www.msys2.org/
+
+В терминале MSYS2 UCRT64 установите компилятор:
+  pacman -S --needed mingw-w64-ucrt-x86_64-gcc
+
+В PowerShell в папке проекта:
+  .\build.ps1 -Compiler 'C:\msys64\ucrt64\bin\gcc.exe'
+
+Если политика PowerShell запрещает запуск локального скрипта:
+  powershell -NoProfile -ExecutionPolicy Bypass -File .\build.ps1 -Compiler 'C:\msys64\ucrt64\bin\gcc.exe'
+
+Команда компилятора, эквивалентная скрипту:
+  gcc -std=c11 -O2 -Wall -Wextra -Wpedantic -Werror -Isrc -Igenerated -static -static-libgcc -municode src/main.c src/ast.c src/semantic.c src/codegen.c generated/parser.c generated/lexer.c -o bin/translator.exe
+
+-municode включает Windows-точку входа wmain для путей с кириллицей.
+-static и -static-libgcc исключают отдельную поставку библиотек GCC.
+Системные библиотеки Windows/UCRT входят в операционную систему.
+
+3. Полная сборка Windows из .y и .l
+
+Дополнительно нужны GNU Bison 3.8+ и Flex 2.6+.
+Проверенные версии: Bison 3.8.2 и Flex 2.6.4.
+В терминале MSYS2:
+  pacman -S --needed bison flex
+
+В PowerShell:
+  $env:PATH = 'C:\msys64\usr\bin;C:\msys64\ucrt64\bin;' + $env:PATH
+  .\build.ps1 -Regenerate
+
+Скрипт выполняет:
+  bison --warnings=all --warnings=error --defines=generated/parser.h -o generated/parser.c grammar/parser.y
+  flex -o generated/lexer.c grammar/lexer.l
+  затем команду GCC из раздела 2.
+
+Не редактируйте generated/parser.c, generated/parser.h и generated/lexer.c
+вручную. После изменений grammar/ нужно повторить полную сборку.
+
+4. Сборка и запуск Linux
+
+Нужны GCC (или совместимый компилятор C11) и GNU Make.
+Для регенерации грамматики нужны Bison и Flex.
+Для тестов и выполнения Python-кода нужны Python и NumPy.
+
+Пример для Debian/Ubuntu:
+  sudo apt-get update
+  sudo apt-get install gcc make bison flex python3 python3-venv
+  make grammar
+  make
+  python3 -m venv .venv
+  .venv/bin/python -m pip install -r requirements.txt
+  ./bin/translator examples/input.mat -o examples/output.py
+  .venv/bin/python examples/output.py
+
+Если generated/ уже подготовлен, make grammar можно пропустить.
+Для статической сборки:
+  make clean
+  make CFLAGS='-std=c11 -O2 -Wall -Wextra -Wpedantic -Werror -static'
+
+Для запуска готового бинарного файла из архива:
+  chmod +x bin/translator
+  ./bin/translator --help
+
+5. Автоматические тесты
+
+В Windows:
+  .\.venv\Scripts\python.exe tests/run_tests.py --report verification/test-report.json
+
+В Linux:
+  .venv/bin/python tests/run_tests.py --translator bin/translator --report verification/linux-test-report.json
+
+Скрипт использует только стандартную библиотеку Python для проверки
+и установленный NumPy для выполнения сгенерированных программ.
+При провале хотя бы одного теста возвращается код 1.
+Результаты исполнения проверяются численно, а не сравнением внешнего
+форматирования вывода разных платформ.
+
+6. Docker
+
+Нужен Docker Engine либо Docker Desktop с Linux-контейнерами.
+Первичная сборка требует интернета для базового образа, apt и PyPI.
+Dockerfile собирает транслятор из .y/.l и запускает весь набор тестов.
+При ошибке компиляции или теста сборка образа прерывается.
+Финальный образ содержит транслятор, Python 3.12 и NumPy 2.3.5.
+
+В PowerShell в папке проекта:
+  docker build -t matrix-translator:1.0.0 .
+  docker run --rm matrix-translator:1.0.0 --help
+  docker run --rm --mount "type=bind,source=$($PWD.Path),target=/work" matrix-translator:1.0.0 examples/input.mat -o examples/output.py
+  docker run --rm --mount "type=bind,source=$($PWD.Path),target=/work" --entrypoint python matrix-translator:1.0.0 examples/output.py
+
+В Linux:
+  docker build -t matrix-translator:1.0.0 .
+  docker run --rm -v "$PWD:/work" matrix-translator:1.0.0 examples/input.mat -o examples/output.py
+  docker run --rm -v "$PWD:/work" --entrypoint python matrix-translator:1.0.0 examples/output.py
+
+Команда ENTRYPOINT по умолчанию вызывает translator. Для выполнения
+результата трансляции entrypoint меняется на python.
+
+На компьютере подготовки Docker отсутствовал. Образ не собирался
+и не запускался. Windows- и Linux-сборки проверены отдельно;
+фактические результаты сохранены в verification/.

@@ -1,0 +1,30 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Matrix Translator 1.0.0</title><style>
+body { margin:0; font:16px/1.65 "Segoe UI",Arial,sans-serif; color:#202020; background:#fff; }
+main { max-width:960px; padding:40px 34px 70px; margin:auto; }
+h1 { font-size:30px; line-height:1.3; margin:0 0 22px; color:#000; }
+h2 { font-size:23px; line-height:1.35; margin:38px 0 14px; color:#000; }
+h3 { font-size:19px; margin:25px 0 10px; color:#000; }
+p { margin:12px 0; }
+code { font-family:Consolas,monospace; font-size:.94em; }
+pre { padding:14px 0; margin:14px 0 20px; overflow-x:auto; line-height:1.55; white-space:pre; }
+table { width:100%; border-collapse:collapse; margin:20px 0; font-size:15px; }
+th,td { border:1px solid #d9d9d9; padding:11px 13px; vertical-align:middle; text-align:left; }
+th { background:#e8edf2; font-weight:600; color:#000; }
+tr:nth-child(even) td { background:#fafafa; }
+a { color:#125795; text-underline-offset:3px; }
+nav { margin:0 0 30px; font-size:14px; }
+@media print { main { padding:0; max-width:none; } body { font-size:11pt; } h1 { font-size:20pt; } h2 { font-size:16pt; page-break-after:avoid; } h3 { page-break-after:avoid; } pre { white-space:pre-wrap; overflow:visible; font-size:9pt; } nav { display:none; } tr { break-inside:avoid; } thead { display:table-header-group; } }
+</style></head><body><main><h1>Matrix Translator 1.0.0</h1>
+<p>Комплект курсовой работы по трансляции языка матричных вычислений в Python.</p>
+<h2>Документация</h2>
+<p><a href="docs/Справка_пользователя.html">Справка пользователя</a> объясняет установку, запуск и все допустимые конструкции языка.</p>
+<p><a href="docs/Пояснительная_записка.html">Пояснительная записка</a> описывает грамматику, архитектуру, семантику, генерацию кода и тестирование.</p>
+<p><a href="BUILD.txt">Инструкция по сборке</a> содержит необходимые инструменты и команды для Windows, Linux и Docker.</p>
+<h2>Запуск примера</h2>
+<p>В Windows откройте файл <code>run_example.bat</code> в папке проекта. Демонстрация показывает исходные матрицы и пояснения перед каждым результатом. На этом компьютере окружение с NumPy уже подготовлено. После переноса на другой компьютер установите Python 3.11 или новее; окружение создастся при первом запуске примера.</p>
+<pre><code>.\bin\translator.exe examples/input.mat -o examples/output.py
+.\.venv\Scripts\python.exe examples/output.py</code></pre>
+<p><a href="examples/input.mat">Исходный пример</a> · <a href="examples/output.py">Полученный Python-код</a> · <a href="examples/stdout.txt">Вывод результатов</a></p>
+<h2>Проверка работы</h2>
+<p><a href="verification/Проверка.txt">Протокол проверки</a> содержит фактические результаты. Автоматические тесты находятся в папке <code>tests</code>. Dockerfile включён; контейнер на компьютере подготовки не запускался.</p>
+</main></body></html>

@@ -1,0 +1,1 @@
+matrix A=[[1,2],[3,4]]; matrix B=[[2,0],[0,2]]; print(A+B*B); print((A+B)*B); print(transpose(A+B)-transpose(B));
