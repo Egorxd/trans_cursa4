@@ -1,8 +1,8 @@
 [
   {
     "path": ".dockerignore",
-    "bytes": 46,
-    "sha256": "8a906b2187f18d6292b9b979aef254eb571ee4c2ba5ff90453dd36138f1eb067"
+    "bytes": 51,
+    "sha256": "88441e2398823de512439d9dc63f2a64adaaa5a3e6602f7173d1b4c736a6fb63"
   },
   {
     "path": ".gitignore",
@@ -17,12 +17,12 @@
   {
     "path": "bin/translator",
     "bytes": 870416,
-    "sha256": "f06baddc68be4d63cf19a03f92e4f7ef5785978aa7364fd8e20db5f368e42de8"
+    "sha256": "460c876a0e0e1595429084f8415ec462c25239a8c8b1a8dbfa07db8c075769d6"
   },
   {
     "path": "bin/translator.exe",
-    "bytes": 180471,
-    "sha256": "60a7d6c3df305acf9f291329b7d3ed86205c1a14f2de9fa3918b9cbd15e786b9"
+    "bytes": 180983,
+    "sha256": "a4cee68bedbf73db0569c39c65a14303c2eeee5de7ceb3dafd32d2b6bf395c8c"
   },
   {
     "path": "build.ps1",
@@ -41,28 +41,28 @@
   },
   {
     "path": "docs/Пояснительная_записка.html",
-    "bytes": 31930,
-    "sha256": "bf3d000736264f1f67a7749a52b719bf63eeed3736ac6fb7a832fc54a5c3b774"
+    "bytes": 32667,
+    "sha256": "288e9fae7f9997580424b8ddc55c3bcfd9ec441cc6cf9431b7eadd8685ee10c6"
   },
   {
     "path": "docs/Пояснительная_записка.md",
-    "bytes": 27004,
-    "sha256": "e07e020f3273cc2149dabde57b7cd6a5b8d7d72a2b68ec71617070f4926c8827"
+    "bytes": 27719,
+    "sha256": "e8ca79475928deddf3b80f128285d067f11ec8def6b534d1a3fc6a7b6a3f7e24"
   },
   {
     "path": "docs/Справка_пользователя.html",
-    "bytes": 20523,
-    "sha256": "1a95b07a565fe7345c29f45c3676466fdcdfa223a8ad0845cc3014052ba0adf7"
+    "bytes": 20697,
+    "sha256": "31c96c47d5ade984ba9e8c5bc12c31bfc648b752559190ecdd973df13de2155e"
   },
   {
     "path": "docs/Справка_пользователя.md",
-    "bytes": 17168,
-    "sha256": "ae59bd374b543ffebcba5176e14121062fcfb3226c9e659e60238dcf9de57166"
+    "bytes": 17342,
+    "sha256": "39ed59372f65fb82ca2b106c9dd3e1bc5492767167eef4a29feb55bf3e16a56c"
   },
   {
     "path": "docs/Справка_пользователя.txt",
-    "bytes": 16917,
-    "sha256": "56a921db5e6ce5c9cac54030a0489b94e9aa66df70bd61f33c3141a143d67e37"
+    "bytes": 17091,
+    "sha256": "7b9ff871e67113b314b5cdab581532f1d096c87d788952c241e033ed85694d8a"
   },
   {
     "path": "docs/Техническое_задание.docx",
@@ -86,8 +86,8 @@
   },
   {
     "path": "examples/output.py",
-    "bytes": 3847,
-    "sha256": "14f842273d2e21dd5717c442681511707416802df76fdde23b4bdd0d0cdac158"
+    "bytes": 4079,
+    "sha256": "87412bb28ccc66416cda7370d1e4ffd672d5f0340b05551252e3188f258a70db"
   },
   {
     "path": "examples/singular_error.input.mat",
@@ -96,8 +96,8 @@
   },
   {
     "path": "examples/singular_error.py",
-    "bytes": 2870,
-    "sha256": "ba632a10fc7331442413b5ea0666879476edf6d0d6b79eaefad9a4cb52f1c560"
+    "bytes": 3102,
+    "sha256": "77145ca9067c067aeb9331fdc9f975a2119aab91c5100b4407be4f8064a2f363"
   },
   {
     "path": "examples/singular_error.stderr.txt",
@@ -221,8 +221,8 @@
   },
   {
     "path": "src/codegen.c",
-    "bytes": 5798,
-    "sha256": "a23c6c08dfe9fda97148bf5e8051423b54b0c206433e26e5ccd23997ad20c1c6"
+    "bytes": 6099,
+    "sha256": "137693a205ba56b219a164559bc5e10fadb6ca0931aa8f4dc87d856bc2fc504d"
   },
   {
     "path": "src/main.c",
@@ -516,8 +516,8 @@
   },
   {
     "path": "tests/run_tests.py",
-    "bytes": 10264,
-    "sha256": "3b97717e3de432492c28001f481a3e7dac184360a82218727f4b98e5d53cf30b"
+    "bytes": 11539,
+    "sha256": "4c1c7e9bc0965f86cbee640c95f99feb273978188febdc4cbe35625e98f2ce0f"
   },
   {
     "path": "tests/valid/all_operations.mat",
@@ -635,14 +635,19 @@
     "sha256": "376e5772a1366f5612d8f3839ee242d8be77c5c08ce43bccb69e5d7620a1e1b0"
   },
   {
+    "path": "verification/encoding-fix.txt",
+    "bytes": 1805,
+    "sha256": "a8ac8eaed2e7070f34d5fabef9901f4c878e2182bc87f69fb700b0021348e4a4"
+  },
+  {
     "path": "verification/example-run.log",
     "bytes": 210,
     "sha256": "c9186ba6eefc48991b395e9a94927d9d17d2de4be4c310fc22f71f989bbf8d8b"
   },
   {
     "path": "verification/linux-test-report.json",
-    "bytes": 29453,
-    "sha256": "36785f035ec5018ca181b585076122365951d50ad0d6daabb7c12df01428e18b"
+    "bytes": 29837,
+    "sha256": "fec611c56ff9620700e839882819a6e61c964089d4402bcc9f199167e9cc2444"
   },
   {
     "path": "verification/parser-report.txt",
@@ -651,18 +656,18 @@
   },
   {
     "path": "verification/test-report.json",
-    "bytes": 30415,
-    "sha256": "884d19ed773901e5143ab6b510bc26b77350d0f11fa405b99f2c53d58773ceb1"
+    "bytes": 30839,
+    "sha256": "de8af09ff132081b6d6e008eb9cf43f534de9a90eb3b565229c355aedd289e0f"
   },
   {
     "path": "verification/tests-linux.log",
-    "bytes": 2059,
-    "sha256": "07e4f2a972dae11021f2c351e6beb22fb31021870ab1baff0f46972801139b11"
+    "bytes": 2108,
+    "sha256": "1b5314eb7609adec004c67511283c952f3cdad382a2c17f3a74d491b4d12c822"
   },
   {
     "path": "verification/tests.log",
-    "bytes": 2059,
-    "sha256": "07e4f2a972dae11021f2c351e6beb22fb31021870ab1baff0f46972801139b11"
+    "bytes": 2108,
+    "sha256": "1b5314eb7609adec004c67511283c952f3cdad382a2c17f3a74d491b4d12c822"
   },
   {
     "path": "verification/windows-imports.txt",
@@ -670,8 +675,18 @@
     "sha256": "ce9b6ce408b4d5a75cc91734bfdaa8a654bf34c8d47a4ac6d1b4b9a6a87b73fe"
   },
   {
+    "path": "verification/windows-powershell-test-report.json",
+    "bytes": 30839,
+    "sha256": "19e68ec86d5f84319c8e34eb125911fcb4ced999cc46ee3f69cf891439b7a3e9"
+  },
+  {
+    "path": "verification/windows-powershell-tests.log",
+    "bytes": 2108,
+    "sha256": "1b5314eb7609adec004c67511283c952f3cdad382a2c17f3a74d491b4d12c822"
+  },
+  {
     "path": "verification/Проверка.txt",
-    "bytes": 4286,
-    "sha256": "484984e9cde955eb11990453711763f69952f60fd80490e7bfea73025f58898c"
+    "bytes": 4569,
+    "sha256": "b9c22bd8e114633a69e6199192f8ce3d7317a1131b338bcaea35dff3d1e0d1a1"
   }
 ]

@@ -1,0 +1,571 @@
+{
+  "total": 93,
+  "passed": 93,
+  "failed": 0,
+  "platform": "win32",
+  "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+  "results": [
+    {
+      "name": "all_operations",
+      "passed": true,
+      "description": "Все операции и пример из ТЗ",
+      "stdout": "[[ 6.  8.]\n [10. 12.]]\n[[-4. -4.]\n [-4. -4.]]\n[[19. 22.]\n [43. 50.]]\n[[1. 3.]\n [2. 4.]]\n-2.0000000000000004\n2\n[[-2.   1. ]\n [ 1.5 -0.5]]\n",
+      "stderr": ""
+    },
+    {
+      "name": "rectangular_product",
+      "passed": true,
+      "description": "Умножение матриц 2x3 и 3x2",
+      "stdout": "[[ 58.  64.]\n [139. 154.]]\n",
+      "stderr": ""
+    },
+    {
+      "name": "ranks",
+      "passed": true,
+      "description": "Ранг квадратной, прямоугольной и нулевых матриц",
+      "stdout": "1\n2\n0\n0\n",
+      "stderr": ""
+    },
+    {
+      "name": "precedence",
+      "passed": true,
+      "description": "Приоритет умножения, скобки, вложенные функции",
+      "stdout": "[[5. 2.]\n [3. 8.]]\n[[ 6.  4.]\n [ 6. 12.]]\n[[1. 3.]\n [2. 4.]]\n",
+      "stderr": ""
+    },
+    {
+      "name": "assignment_shapes",
+      "passed": true,
+      "description": "Повторные присваивания и изменение размеров",
+      "stdout": "[[2.]\n [4.]]\n[[14. 32.]\n [32. 77.]]\n7.0\n",
+      "stderr": ""
+    },
+    {
+      "name": "numbers_comments",
+      "passed": true,
+      "description": "Целые, дробные, отрицательные, экспонента и три вида комментариев",
+      "stdout": "7.0\n[[-1.e+00  5.e-01  1.e+00  2.e-02 -3.e+01]]\n",
+      "stderr": ""
+    },
+    {
+      "name": "unary",
+      "passed": true,
+      "description": "Унарные знаки для чисел и матриц",
+      "stdout": "[[-1.  2.]]\n[[ 1. -2.]]\n2.0\n8.0\n",
+      "stderr": ""
+    },
+    {
+      "name": "python_names",
+      "passed": true,
+      "description": "Имена, совпадающие с именами Python и служебными именами",
+      "stdout": "22.0\n",
+      "stderr": ""
+    },
+    {
+      "name": "small_square",
+      "passed": true,
+      "description": "Матрица 1x1",
+      "stdout": "4.0\n[[0.25]]\n1\n",
+      "stderr": ""
+    },
+    {
+      "name": "near_singular_rank",
+      "passed": true,
+      "description": "Порог численного ранга и допустимая обратная матрица",
+      "stdout": "1\n2\n[[1.e+00 0.e+00]\n [0.e+00 1.e+12]]\n",
+      "stderr": ""
+    },
+    {
+      "name": "scale_invariance",
+      "passed": true,
+      "description": "Ранг при малом масштабе и обратная матрица",
+      "stdout": "2\n[[1.e+200 0.e+000]\n [0.e+000 1.e+200]]\n1\n",
+      "stderr": ""
+    },
+    {
+      "name": "print_expression",
+      "passed": true,
+      "description": "Вывод выражений без переменных",
+      "stdout": "[[11.]]\n7.000000000000001\n",
+      "stderr": ""
+    },
+    {
+      "name": "comments_only",
+      "passed": true,
+      "description": "Программа только из комментариев",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "empty_program",
+      "passed": true,
+      "description": "Пустая программа",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "singular_inverse",
+      "passed": true,
+      "description": "Обращение вырожденной матрицы",
+      "stdout": "",
+      "stderr": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\valid\\singular_inverse.mat:1:31: ошибка вычисления: матрица вырождена или численно вырождена; обратная матрица не существует с выбранной точностью\n"
+    },
+    {
+      "name": "near_singular_inverse",
+      "passed": true,
+      "description": "Обращение численно вырожденной матрицы",
+      "stdout": "",
+      "stderr": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\valid\\near_singular_inverse.mat:1:35: ошибка вычисления: матрица вырождена или численно вырождена; обратная матрица не существует с выбранной точностью\n"
+    },
+    {
+      "name": "zero_inverse",
+      "passed": true,
+      "description": "Обращение нулевой матрицы",
+      "stdout": "",
+      "stderr": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\valid\\zero_inverse.mat:1:7: ошибка вычисления: матрица вырождена или численно вырождена; обратная матрица не существует с выбранной точностью\n"
+    },
+    {
+      "name": "scalar_overflow",
+      "passed": true,
+      "description": "Диагностика переполнения чисел",
+      "stdout": "",
+      "stderr": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\valid\\scalar_overflow.mat:1:17: ошибка вычисления: результат вне диапазона float64\n"
+    },
+    {
+      "name": "matrix_overflow",
+      "passed": true,
+      "description": "Диагностика переполнения матриц",
+      "stdout": "",
+      "stderr": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\valid\\matrix_overflow.mat:1:21: ошибка вычисления: overflow encountered in matmul\n"
+    },
+    {
+      "name": "undeclared_read",
+      "passed": true,
+      "description": "Чтение необъявленной переменной",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\undeclared_read.mat:1:7: семантическая ошибка: переменная 'A' не объявлена"
+    },
+    {
+      "name": "undeclared_assignment",
+      "passed": true,
+      "description": "Присваивание необъявленной переменной",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\undeclared_assignment.mat:1:1: семантическая ошибка: переменная 'A' не объявлена"
+    },
+    {
+      "name": "duplicate",
+      "passed": true,
+      "description": "Повторное объявление",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\duplicate.mat:1:24: семантическая ошибка: повторное объявление переменной 'A'"
+    },
+    {
+      "name": "self_initialization",
+      "passed": true,
+      "description": "Использование переменной в её первом объявлении",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\self_initialization.mat:1:10: семантическая ошибка: переменная 'a' не объявлена"
+    },
+    {
+      "name": "matrix_from_number",
+      "passed": true,
+      "description": "Число в матричной переменной",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\matrix_from_number.mat:1:8: семантическая ошибка: нельзя присвоить значение типа 'число' переменной 'A' типа 'матрица'"
+    },
+    {
+      "name": "number_from_matrix",
+      "passed": true,
+      "description": "Матрица в числовой переменной",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\number_from_matrix.mat:1:8: семантическая ошибка: нельзя присвоить значение типа 'матрица' переменной 'a' типа 'число'"
+    },
+    {
+      "name": "assignment_type",
+      "passed": true,
+      "description": "Несовместимый тип повторного присваивания",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\assignment_type.mat:1:13: семантическая ошибка: нельзя присвоить значение типа 'матрица' переменной 'a' типа 'число'"
+    },
+    {
+      "name": "transpose_number",
+      "passed": true,
+      "description": "Числовой аргумент transpose",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\transpose_number.mat:1:7: семантическая ошибка: функция 'transpose' ожидает матрицу, получено число"
+    },
+    {
+      "name": "transpose_no_args",
+      "passed": true,
+      "description": "Нет аргумента transpose",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\transpose_no_args.mat:1:7: семантическая ошибка: функция 'transpose' ожидает один аргумент, получено 0"
+    },
+    {
+      "name": "transpose_two_args",
+      "passed": true,
+      "description": "Два аргумента transpose",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\transpose_two_args.mat:1:7: семантическая ошибка: функция 'transpose' ожидает один аргумент, получено 2"
+    },
+    {
+      "name": "det_number",
+      "passed": true,
+      "description": "Числовой аргумент det",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\det_number.mat:1:7: семантическая ошибка: функция 'det' ожидает матрицу, получено число"
+    },
+    {
+      "name": "det_no_args",
+      "passed": true,
+      "description": "Нет аргумента det",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\det_no_args.mat:1:7: семантическая ошибка: функция 'det' ожидает один аргумент, получено 0"
+    },
+    {
+      "name": "det_two_args",
+      "passed": true,
+      "description": "Два аргумента det",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\det_two_args.mat:1:7: семантическая ошибка: функция 'det' ожидает один аргумент, получено 2"
+    },
+    {
+      "name": "rank_number",
+      "passed": true,
+      "description": "Числовой аргумент rank",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\rank_number.mat:1:7: семантическая ошибка: функция 'rank' ожидает матрицу, получено число"
+    },
+    {
+      "name": "rank_no_args",
+      "passed": true,
+      "description": "Нет аргумента rank",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\rank_no_args.mat:1:7: семантическая ошибка: функция 'rank' ожидает один аргумент, получено 0"
+    },
+    {
+      "name": "rank_two_args",
+      "passed": true,
+      "description": "Два аргумента rank",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\rank_two_args.mat:1:7: семантическая ошибка: функция 'rank' ожидает один аргумент, получено 2"
+    },
+    {
+      "name": "inverse_number",
+      "passed": true,
+      "description": "Числовой аргумент inverse",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\inverse_number.mat:1:7: семантическая ошибка: функция 'inverse' ожидает матрицу, получено число"
+    },
+    {
+      "name": "inverse_no_args",
+      "passed": true,
+      "description": "Нет аргумента inverse",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\inverse_no_args.mat:1:7: семантическая ошибка: функция 'inverse' ожидает один аргумент, получено 0"
+    },
+    {
+      "name": "inverse_two_args",
+      "passed": true,
+      "description": "Два аргумента inverse",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\inverse_two_args.mat:1:7: семантическая ошибка: функция 'inverse' ожидает один аргумент, получено 2"
+    },
+    {
+      "name": "unknown_function",
+      "passed": true,
+      "description": "Неизвестная функция",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\unknown_function.mat:1:7: семантическая ошибка: неизвестная функция 'trace'"
+    },
+    {
+      "name": "reserved_function",
+      "passed": true,
+      "description": "Объявление с именем встроенной функции",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\reserved_function.mat:1:8: семантическая ошибка: имя 'rank' зарезервировано для встроенной функции"
+    },
+    {
+      "name": "empty_matrix",
+      "passed": true,
+      "description": "Пустая матрица",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\empty_matrix.mat:1:10: семантическая ошибка: матрица должна быть непустой"
+    },
+    {
+      "name": "empty_row",
+      "passed": true,
+      "description": "Пустая первая строка",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\empty_row.mat:1:10: семантическая ошибка: строка матрицы должна быть непустой"
+    },
+    {
+      "name": "ragged",
+      "passed": true,
+      "description": "Строки разной длины",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\ragged.mat:1:10: семантическая ошибка: все строки матрицы должны иметь одинаковое число элементов (ожидалось 2, получено 1)"
+    },
+    {
+      "name": "later_empty_row",
+      "passed": true,
+      "description": "Пустая последующая строка",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\later_empty_row.mat:1:10: семантическая ошибка: все строки матрицы должны иметь одинаковое число элементов (ожидалось 1, получено 0)"
+    },
+    {
+      "name": "flat_matrix",
+      "passed": true,
+      "description": "Отсутствие скобок строки",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\flat_matrix.mat:1:11: синтаксическая ошибка: syntax error, unexpected число, expecting '[' or ']'"
+    },
+    {
+      "name": "non_numeric_element",
+      "passed": true,
+      "description": "Переменная вместо числового элемента литерала",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\non_numeric_element.mat:1:24: синтаксическая ошибка: syntax error, unexpected идентификатор, expecting число or '+' or '-' or ']'"
+    },
+    {
+      "name": "expression_element",
+      "passed": true,
+      "description": "Выражение внутри литерала",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\expression_element.mat:1:13: синтаксическая ошибка: syntax error, unexpected '+', expecting ',' or ']'"
+    },
+    {
+      "name": "nested_element",
+      "passed": true,
+      "description": "Третье измерение",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\nested_element.mat:1:12: синтаксическая ошибка: syntax error, unexpected '[', expecting число or '+' or '-' or ']'"
+    },
+    {
+      "name": "add_shape",
+      "passed": true,
+      "description": "Несовместимые размеры при операции +",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\add_shape.mat:1:60: семантическая ошибка: операция '+' требует одинаковых размеров матриц, получены 2x3 и 2x2"
+    },
+    {
+      "name": "add_mixed",
+      "passed": true,
+      "description": "Смешение типов в операции +",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\add_mixed.mat:1:12: семантическая ошибка: операция '+' требует два числа или две матрицы, получены матрица и число"
+    },
+    {
+      "name": "subtract_shape",
+      "passed": true,
+      "description": "Несовместимые размеры при операции -",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\subtract_shape.mat:1:60: семантическая ошибка: операция '-' требует одинаковых размеров матриц, получены 2x3 и 2x2"
+    },
+    {
+      "name": "subtract_mixed",
+      "passed": true,
+      "description": "Смешение типов в операции -",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\subtract_mixed.mat:1:12: семантическая ошибка: операция '-' требует два числа или две матрицы, получены матрица и число"
+    },
+    {
+      "name": "multiply_shape",
+      "passed": true,
+      "description": "Несовместимые размеры при операции *",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\multiply_shape.mat:1:60: семантическая ошибка: невозможно умножить матрицы размеров 2x3 и 2x2: число столбцов первой матрицы должно совпадать с числом строк второй"
+    },
+    {
+      "name": "multiply_mixed",
+      "passed": true,
+      "description": "Смешение типов в операции *",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\multiply_mixed.mat:1:12: семантическая ошибка: операция '*' требует два числа или две матрицы, получены матрица и число"
+    },
+    {
+      "name": "shape_after_assignment",
+      "passed": true,
+      "description": "Учёт размера после присваивания",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\shape_after_assignment.mat:1:35: семантическая ошибка: операция '+' требует одинаковых размеров матриц, получены 1x2 и 1x1"
+    },
+    {
+      "name": "det_rectangular",
+      "passed": true,
+      "description": "Определитель неквадратной матрицы",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\det_rectangular.mat:1:7: семантическая ошибка: функция 'det' требует квадратную матрицу, получена 2x3"
+    },
+    {
+      "name": "inverse_rectangular",
+      "passed": true,
+      "description": "Обратная неквадратная матрица",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\inverse_rectangular.mat:1:7: семантическая ошибка: функция 'inverse' требует квадратную матрицу, получена 2x3"
+    },
+    {
+      "name": "semicolon",
+      "passed": true,
+      "description": "Нет точки с запятой",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\semicolon.mat:2:1: синтаксическая ошибка: syntax error, unexpected end of file, expecting '+' or '-' or '*' or ';'"
+    },
+    {
+      "name": "parenthesis",
+      "passed": true,
+      "description": "Незакрытая скобка",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\parenthesis.mat:1:12: синтаксическая ошибка: syntax error, unexpected ';', expecting '+' or '-' or '*' or ')'"
+    },
+    {
+      "name": "trailing_comma",
+      "passed": true,
+      "description": "Лишняя запятая",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\trailing_comma.mat:1:14: синтаксическая ошибка: syntax error, unexpected ']', expecting число or '+' or '-'"
+    },
+    {
+      "name": "declaration_without_value",
+      "passed": true,
+      "description": "Нет начального значения",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\declaration_without_value.mat:1:9: синтаксическая ошибка: syntax error, unexpected ';', expecting '='"
+    },
+    {
+      "name": "print_zero_args",
+      "passed": true,
+      "description": "Нет аргумента print",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\print_zero_args.mat:1:7: синтаксическая ошибка: syntax error, unexpected ')'"
+    },
+    {
+      "name": "print_two_args",
+      "passed": true,
+      "description": "Лишний аргумент print",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\print_two_args.mat:1:8: синтаксическая ошибка: syntax error, unexpected ',', expecting '+' or '-' or '*' or ')'"
+    },
+    {
+      "name": "division",
+      "passed": true,
+      "description": "Неподдерживаемый оператор /",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\division.mat:1:8: лексическая ошибка: недопустимый символ (байт 0x2F)"
+    },
+    {
+      "name": "bad_character",
+      "passed": true,
+      "description": "Недопустимый символ",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\bad_character.mat:1:10: лексическая ошибка: недопустимый символ (байт 0x40)"
+    },
+    {
+      "name": "cyrillic_identifier",
+      "passed": true,
+      "description": "Не ASCII идентификатор",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\cyrillic_identifier.mat:1:8: лексическая ошибка: недопустимый символ (байт 0xD0)"
+    },
+    {
+      "name": "unterminated_comment",
+      "passed": true,
+      "description": "Незакрытый комментарий",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\unterminated_comment.mat:1:1: лексическая ошибка: незавершённый комментарий /* ... */"
+    },
+    {
+      "name": "float_overflow_literal",
+      "passed": true,
+      "description": "Литерал слишком большой",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\float_overflow_literal.mat:1:7: семантическая ошибка: число '1e309' вне допустимого диапазона float64"
+    },
+    {
+      "name": "float_underflow_literal",
+      "passed": true,
+      "description": "Литерал исчезает до нуля",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\float_underflow_literal.mat:1:7: семантическая ошибка: число '1e-999' вне допустимого диапазона float64"
+    },
+    {
+      "name": "invalid_exponent",
+      "passed": true,
+      "description": "Незавершённая экспонента",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\invalid_exponent.mat:1:8: синтаксическая ошибка: syntax error, unexpected идентификатор, expecting '+' or '-' or '*' or ')'"
+    },
+    {
+      "name": "hex_literal",
+      "passed": true,
+      "description": "Шестнадцатеричный литерал",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\hex_literal.mat:1:8: синтаксическая ошибка: syntax error, unexpected идентификатор, expecting '+' or '-' or '*' or ')'"
+    },
+    {
+      "name": "nul_byte",
+      "passed": true,
+      "description": "Нулевой байт",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\nul_byte.mat:1:10: лексическая ошибка: нулевой байт во входном тексте"
+    },
+    {
+      "name": "too_deep",
+      "passed": true,
+      "description": "Ограничение глубины AST",
+      "diagnostic": "C:\\Users\\user\\Desktop\\trans_cursa4\\tests\\invalid\\too_deep.mat:1:20: семантическая ошибка: глубина выражения превышает 512"
+    },
+    {
+      "name": "cli_no_arguments",
+      "passed": true,
+      "stdout": "",
+      "stderr": "Matrix Translator 1.0.0 — транслятор матричного языка в Python\nИспользование: translator input.mat -o output.py\n              translator --help | --version\nПосле трансляции: python output.py (требуется NumPy).\n"
+    },
+    {
+      "name": "cli_missing_output",
+      "passed": true,
+      "stdout": "",
+      "stderr": "Matrix Translator 1.0.0 — транслятор матричного языка в Python\nИспользование: translator input.mat -o output.py\n              translator --help | --version\nПосле трансляции: python output.py (требуется NumPy).\n"
+    },
+    {
+      "name": "cli_wrong_switch",
+      "passed": true,
+      "stdout": "",
+      "stderr": "Matrix Translator 1.0.0 — транслятор матричного языка в Python\nИспользование: translator input.mat -o output.py\n              translator --help | --version\nПосле трансляции: python output.py (требуется NumPy).\n"
+    },
+    {
+      "name": "cli_unknown_option",
+      "passed": true,
+      "stdout": "",
+      "stderr": "Matrix Translator 1.0.0 — транслятор матричного языка в Python\nИспользование: translator input.mat -o output.py\n              translator --help | --version\nПосле трансляции: python output.py (требуется NumPy).\n"
+    },
+    {
+      "name": "cli_help",
+      "passed": true,
+      "stdout": "Matrix Translator 1.0.0 — транслятор матричного языка в Python\nИспользование: translator input.mat -o output.py\n              translator --help | --version\nПосле трансляции: python output.py (требуется NumPy).\n",
+      "stderr": ""
+    },
+    {
+      "name": "cli_version",
+      "passed": true,
+      "stdout": "Matrix Translator 1.0.0\n",
+      "stderr": ""
+    },
+    {
+      "name": "cli_missing_file",
+      "passed": true,
+      "stdout": "",
+      "stderr": "Ошибка: не удалось открыть входной файл 'C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-ntbi6hy7\\missing.mat': No such file or directory\n"
+    },
+    {
+      "name": "cli_read_directory",
+      "passed": true,
+      "stdout": "",
+      "stderr": "Ошибка: не удалось открыть входной файл 'C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-ntbi6hy7': Permission denied\n"
+    },
+    {
+      "name": "cli_missing_output_directory",
+      "passed": true,
+      "stdout": "",
+      "stderr": "Ошибка: не удалось создать выходной файл 'C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-ntbi6hy7\\absent\\out.py': No such file or directory\n"
+    },
+    {
+      "name": "cli_output_is_directory",
+      "passed": true,
+      "stdout": "",
+      "stderr": "Ошибка: не удалось записать выходной файл 'C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-ntbi6hy7'.\n"
+    },
+    {
+      "name": "cli_same_file",
+      "passed": true,
+      "stdout": "",
+      "stderr": "Ошибка: входной и выходной файлы должны быть разными.\n"
+    },
+    {
+      "name": "same_file_hardlink",
+      "passed": true
+    },
+    {
+      "name": "utf8_bom_crlf_paths",
+      "passed": true
+    },
+    {
+      "name": "unicode_comment_error_column",
+      "passed": true,
+      "stderr": "C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-ntbi6hy7\\column.mat:1:20: семантическая ошибка: переменная 'A' не объявлена\n"
+    },
+    {
+      "name": "runtime_error_utf8_with_cp1251_environment",
+      "passed": true,
+      "stderr": "C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-ntbi6hy7\\legacy-encoding.mat:1:7: ошибка вычисления: матрица вырождена или численно вырождена; обратная матрица не существует с выбранной точностью\n"
+    },
+    {
+      "name": "successful_output_replacement",
+      "passed": true
+    },
+    {
+      "name": "input_size_limit",
+      "passed": true
+    },
+    {
+      "name": "token_count_limit",
+      "passed": true
+    },
+    {
+      "name": "inverse_residual",
+      "passed": true,
+      "stdout": "[[ 1.0000000000e+00  1.3877787808e-17  0.0000000000e+00]\n [-2.7755575616e-17  1.0000000000e+00  2.0816681712e-17]\n [ 2.7755575616e-17  6.9388939039e-18  1.0000000000e+00]]\n"
+    },
+    {
+      "name": "temporary_files_cleaned",
+      "passed": true
+    }
+  ]
+}

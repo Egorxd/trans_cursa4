@@ -14,15 +14,18 @@ ROOT = Path(__file__).resolve().parents[1]
 POSITION = re.compile(r':\d+:\d+:')
 NUMBER = re.compile(r'[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?')
 
-def execute(arguments):
+def execute(arguments, *, env=None):
     return subprocess.run([str(a) for a in arguments], capture_output=True, text=True,
-                          encoding='utf-8', errors='replace', timeout=30)
+                          encoding='utf-8', errors='strict', timeout=30, env=env)
 
 def check(condition, message):
     if not condition:
         raise AssertionError(message)
 
 def main():
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, 'reconfigure'):
+            stream.reconfigure(encoding='utf-8', errors='backslashreplace')
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--translator', type=Path, default=ROOT/'bin'/('translator.exe' if os.name == 'nt' else 'translator'))
     parser.add_argument('--report', type=Path)
@@ -128,6 +131,22 @@ def main():
             check(not (folder/'column.py').exists(), 'invalid input created a file')
             return dict(stderr=result.stderr)
         record('unicode_comment_error_column', unicode_column)
+
+        def runtime_error_legacy_encoding():
+            input_path = folder/'legacy-encoding.mat'
+            output_path = folder/'legacy-encoding.py'
+            input_path.write_text('print(inverse([[0]]));', encoding='utf-8')
+            translated = execute([translator, input_path, '-o', output_path])
+            check(translated.returncode == 0, translated.stderr)
+            environment = dict(os.environ, PYTHONIOENCODING='cp1251', PYTHONUTF8='0')
+            result = execute([sys.executable, output_path], env=environment)
+            check(result.returncode == 1, f'wrong runtime status: {result.returncode}')
+            check('матрица вырождена' in result.stderr, result.stderr)
+            check('ошибка вычисления' in result.stderr, result.stderr)
+            check(POSITION.search(result.stderr), 'missing source position')
+            check('Traceback' not in result.stderr, 'raw Python traceback')
+            return dict(stderr=result.stderr)
+        record('runtime_error_utf8_with_cp1251_environment', runtime_error_legacy_encoding)
 
         def replace_output():
             output = folder/'overwrite.py'

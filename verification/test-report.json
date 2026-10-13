@@ -1,6 +1,6 @@
 {
-  "total": 92,
-  "passed": 92,
+  "total": 93,
+  "passed": 93,
   "failed": 0,
   "platform": "win32",
   "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
@@ -502,25 +502,25 @@
       "name": "cli_missing_file",
       "passed": true,
       "stdout": "",
-      "stderr": "Ошибка: не удалось открыть входной файл 'C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-8aeqmmpb\\missing.mat': No such file or directory\n"
+      "stderr": "Ошибка: не удалось открыть входной файл 'C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-v2hfqjvk\\missing.mat': No such file or directory\n"
     },
     {
       "name": "cli_read_directory",
       "passed": true,
       "stdout": "",
-      "stderr": "Ошибка: не удалось открыть входной файл 'C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-8aeqmmpb': Permission denied\n"
+      "stderr": "Ошибка: не удалось открыть входной файл 'C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-v2hfqjvk': Permission denied\n"
     },
     {
       "name": "cli_missing_output_directory",
       "passed": true,
       "stdout": "",
-      "stderr": "Ошибка: не удалось создать выходной файл 'C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-8aeqmmpb\\absent\\out.py': No such file or directory\n"
+      "stderr": "Ошибка: не удалось создать выходной файл 'C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-v2hfqjvk\\absent\\out.py': No such file or directory\n"
     },
     {
       "name": "cli_output_is_directory",
       "passed": true,
       "stdout": "",
-      "stderr": "Ошибка: не удалось записать выходной файл 'C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-8aeqmmpb'.\n"
+      "stderr": "Ошибка: не удалось записать выходной файл 'C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-v2hfqjvk'.\n"
     },
     {
       "name": "cli_same_file",
@@ -539,7 +539,12 @@
     {
       "name": "unicode_comment_error_column",
       "passed": true,
-      "stderr": "C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-8aeqmmpb\\column.mat:1:20: семантическая ошибка: переменная 'A' не объявлена\n"
+      "stderr": "C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-v2hfqjvk\\column.mat:1:20: семантическая ошибка: переменная 'A' не объявлена\n"
+    },
+    {
+      "name": "runtime_error_utf8_with_cp1251_environment",
+      "passed": true,
+      "stderr": "C:\\Users\\user\\AppData\\Local\\Temp\\matrix-translator-v2hfqjvk\\legacy-encoding.mat:1:7: ошибка вычисления: матрица вырождена или численно вырождена; обратная матрица не существует с выбранной точностью\n"
     },
     {
       "name": "successful_output_replacement",

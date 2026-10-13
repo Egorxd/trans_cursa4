@@ -1,6 +1,6 @@
 {
-  "total": 92,
-  "passed": 92,
+  "total": 93,
+  "passed": 93,
   "failed": 0,
   "platform": "linux",
   "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
@@ -502,25 +502,25 @@
       "name": "cli_missing_file",
       "passed": true,
       "stdout": "",
-      "stderr": "Ошибка: не удалось открыть входной файл '/tmp/matrix-translator-zv47ehni/missing.mat': No such file or directory\n"
+      "stderr": "Ошибка: не удалось открыть входной файл '/tmp/matrix-translator-cd4a92sc/missing.mat': No such file or directory\n"
     },
     {
       "name": "cli_read_directory",
       "passed": true,
       "stdout": "",
-      "stderr": "Ошибка: не удалось прочитать входной файл '/tmp/matrix-translator-zv47ehni'.\n"
+      "stderr": "Ошибка: не удалось прочитать входной файл '/tmp/matrix-translator-cd4a92sc'.\n"
     },
     {
       "name": "cli_missing_output_directory",
       "passed": true,
       "stdout": "",
-      "stderr": "Ошибка: не удалось создать выходной файл '/tmp/matrix-translator-zv47ehni/absent/out.py': No such file or directory\n"
+      "stderr": "Ошибка: не удалось создать выходной файл '/tmp/matrix-translator-cd4a92sc/absent/out.py': No such file or directory\n"
     },
     {
       "name": "cli_output_is_directory",
       "passed": true,
       "stdout": "",
-      "stderr": "Ошибка: не удалось записать выходной файл '/tmp/matrix-translator-zv47ehni'.\n"
+      "stderr": "Ошибка: не удалось записать выходной файл '/tmp/matrix-translator-cd4a92sc'.\n"
     },
     {
       "name": "cli_same_file",
@@ -539,7 +539,12 @@
     {
       "name": "unicode_comment_error_column",
       "passed": true,
-      "stderr": "/tmp/matrix-translator-zv47ehni/column.mat:1:20: семантическая ошибка: переменная 'A' не объявлена\n"
+      "stderr": "/tmp/matrix-translator-cd4a92sc/column.mat:1:20: семантическая ошибка: переменная 'A' не объявлена\n"
+    },
+    {
+      "name": "runtime_error_utf8_with_cp1251_environment",
+      "passed": true,
+      "stderr": "/tmp/matrix-translator-cd4a92sc/legacy-encoding.mat:1:7: ошибка вычисления: матрица вырождена или численно вырождена; обратная матрица не существует с выбранной точностью\n"
     },
     {
       "name": "successful_output_replacement",

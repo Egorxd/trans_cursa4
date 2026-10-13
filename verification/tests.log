@@ -85,10 +85,11 @@ PASS cli_same_file
 PASS same_file_hardlink
 PASS utf8_bom_crlf_paths
 PASS unicode_comment_error_column
+PASS runtime_error_utf8_with_cp1251_environment
 PASS successful_output_replacement
 PASS input_size_limit
 PASS token_count_limit
 PASS inverse_residual
 PASS temporary_files_cleaned
 
-92/92 passed
+93/93 passed
