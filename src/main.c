@@ -64,7 +64,7 @@ static int same_file(const char *input, const char *output) {
 
 static void usage(FILE *out) {
     fputs("Matrix Translator " TRANSLATOR_VERSION " — транслятор матричного языка в Python\n"
-          "Использование: translator input.mat -o output.py\n"
+          "Использование: translator input.txt -o output.py\n"
           "              translator --help | --version\n"
           "После трансляции: python output.py (требуется NumPy).\n", out);
 }
@@ -134,7 +134,6 @@ static int run(int argc, char **argv) {
     parse_result = yyparse();
     yy_delete_buffer(buffer); yylex_destroy();
     if (parse_result || had_error || !analyze(program)) return 1;
-    /* No output file is opened until both parsing and semantic checks succeed. */
     out = temporary(argv[3], &temp_name);
     if (!out) { fprintf(stderr, "Ошибка: не удалось создать выходной файл '%s': %s\n", argv[3], strerror(errno)); return 3; }
     ok = generate(out, program);

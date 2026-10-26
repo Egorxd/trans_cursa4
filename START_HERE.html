@@ -21,10 +21,12 @@ nav { margin:0 0 30px; font-size:14px; }
 <p><a href="docs/Пояснительная_записка.html">Пояснительная записка</a> описывает грамматику, архитектуру, семантику, генерацию кода и тестирование.</p>
 <p><a href="BUILD.txt">Инструкция по сборке</a> содержит необходимые инструменты и команды для Windows, Linux и Docker.</p>
 <h2>Запуск примера</h2>
-<p>В Windows откройте файл <code>run_example.bat</code> в папке проекта. Демонстрация показывает исходные матрицы и пояснения перед каждым результатом. На этом компьютере окружение с NumPy уже подготовлено. После переноса на другой компьютер установите Python 3.11 или новее; окружение создастся при первом запуске примера.</p>
-<pre><code>.\bin\translator.exe examples/input.mat -o examples/output.py
+<p>Установите Python 3.11 или новее x64 с добавлением команды <code>python</code> в PATH. В Windows откройте <code>run_example.bat</code>: при первом запуске он создаст окружение и установит NumPy. Демонстрация показывает исходные матрицы и пояснения перед каждым результатом. Для первой установки зависимостей нужен интернет.</p>
+<p>Для запуска из PowerShell выполните в папке проекта:</p>
+<pre><code>powershell -NoProfile -ExecutionPolicy Bypass -File .\setup.ps1
+.\bin\translator.exe examples/input.txt -o examples/output.py
 .\.venv\Scripts\python.exe examples/output.py</code></pre>
-<p><a href="examples/input.mat">Исходный пример</a> · <a href="examples/output.py">Полученный Python-код</a> · <a href="examples/stdout.txt">Вывод результатов</a></p>
+<p><a href="examples/input.txt">Исходный пример</a> · <a href="examples/output.py">Полученный Python-код</a> · <a href="examples/stdout.txt">Вывод результатов</a></p>
 <h2>Проверка работы</h2>
-<p><a href="verification/Проверка.txt">Протокол проверки</a> содержит фактические результаты. Автоматические тесты находятся в папке <code>tests</code>. Dockerfile включён; контейнер на компьютере подготовки не запускался.</p>
+<p>Для полной проверки выполните <code>.\.venv\Scripts\python.exe tests/run_tests.py</code>. Ожидаемый итог — <code>93/93 passed</code>. <a href="verification/tests.log">Журнал Windows</a> и <a href="verification/tests-linux.log">журнал Linux</a> содержат результаты выполненных проверок. Dockerfile включён; контейнер на компьютере подготовки не запускался.</p>
 </main></body></html>

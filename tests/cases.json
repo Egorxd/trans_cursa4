@@ -1,7 +1,7 @@
 [
   {
     "name": "all_operations",
-    "path": "tests/valid/all_operations.mat",
+    "path": "tests/valid/all_operations.txt",
     "kind": "valid",
     "expected": [
       6,
@@ -31,7 +31,7 @@
   },
   {
     "name": "rectangular_product",
-    "path": "tests/valid/rectangular_product.mat",
+    "path": "tests/valid/rectangular_product.txt",
     "kind": "valid",
     "expected": [
       58,
@@ -43,7 +43,7 @@
   },
   {
     "name": "ranks",
-    "path": "tests/valid/ranks.mat",
+    "path": "tests/valid/ranks.txt",
     "kind": "valid",
     "expected": [
       1,
@@ -55,7 +55,7 @@
   },
   {
     "name": "precedence",
-    "path": "tests/valid/precedence.mat",
+    "path": "tests/valid/precedence.txt",
     "kind": "valid",
     "expected": [
       5,
@@ -75,7 +75,7 @@
   },
   {
     "name": "assignment_shapes",
-    "path": "tests/valid/assignment_shapes.mat",
+    "path": "tests/valid/assignment_shapes.txt",
     "kind": "valid",
     "expected": [
       2,
@@ -90,7 +90,7 @@
   },
   {
     "name": "numbers_comments",
-    "path": "tests/valid/numbers_comments.mat",
+    "path": "tests/valid/numbers_comments.txt",
     "kind": "valid",
     "expected": [
       7,
@@ -104,7 +104,7 @@
   },
   {
     "name": "unary",
-    "path": "tests/valid/unary.mat",
+    "path": "tests/valid/unary.txt",
     "kind": "valid",
     "expected": [
       -1,
@@ -118,7 +118,7 @@
   },
   {
     "name": "python_names",
-    "path": "tests/valid/python_names.mat",
+    "path": "tests/valid/python_names.txt",
     "kind": "valid",
     "expected": [
       22
@@ -127,7 +127,7 @@
   },
   {
     "name": "small_square",
-    "path": "tests/valid/small_square.mat",
+    "path": "tests/valid/small_square.txt",
     "kind": "valid",
     "expected": [
       4,
@@ -138,7 +138,7 @@
   },
   {
     "name": "near_singular_rank",
-    "path": "tests/valid/near_singular_rank.mat",
+    "path": "tests/valid/near_singular_rank.txt",
     "kind": "valid",
     "expected": [
       1,
@@ -152,7 +152,7 @@
   },
   {
     "name": "scale_invariance",
-    "path": "tests/valid/scale_invariance.mat",
+    "path": "tests/valid/scale_invariance.txt",
     "kind": "valid",
     "expected": [
       2,
@@ -166,7 +166,7 @@
   },
   {
     "name": "print_expression",
-    "path": "tests/valid/print_expression.mat",
+    "path": "tests/valid/print_expression.txt",
     "kind": "valid",
     "expected": [
       11,
@@ -176,21 +176,21 @@
   },
   {
     "name": "comments_only",
-    "path": "tests/valid/comments_only.mat",
+    "path": "tests/valid/comments_only.txt",
     "kind": "valid",
     "expected": [],
     "description": "Программа только из комментариев"
   },
   {
     "name": "empty_program",
-    "path": "tests/valid/empty_program.mat",
+    "path": "tests/valid/empty_program.txt",
     "kind": "valid",
     "expected": [],
     "description": "Пустая программа"
   },
   {
     "name": "singular_inverse",
-    "path": "tests/valid/singular_inverse.mat",
+    "path": "tests/valid/singular_inverse.txt",
     "kind": "valid",
     "expected": [],
     "description": "Обращение вырожденной матрицы",
@@ -198,7 +198,7 @@
   },
   {
     "name": "near_singular_inverse",
-    "path": "tests/valid/near_singular_inverse.mat",
+    "path": "tests/valid/near_singular_inverse.txt",
     "kind": "valid",
     "expected": [],
     "description": "Обращение численно вырожденной матрицы",
@@ -206,7 +206,7 @@
   },
   {
     "name": "zero_inverse",
-    "path": "tests/valid/zero_inverse.mat",
+    "path": "tests/valid/zero_inverse.txt",
     "kind": "valid",
     "expected": [],
     "description": "Обращение нулевой матрицы",
@@ -214,7 +214,7 @@
   },
   {
     "name": "scalar_overflow",
-    "path": "tests/valid/scalar_overflow.mat",
+    "path": "tests/valid/scalar_overflow.txt",
     "kind": "valid",
     "expected": [],
     "description": "Диагностика переполнения чисел",
@@ -222,7 +222,7 @@
   },
   {
     "name": "matrix_overflow",
-    "path": "tests/valid/matrix_overflow.mat",
+    "path": "tests/valid/matrix_overflow.txt",
     "kind": "valid",
     "expected": [],
     "description": "Диагностика переполнения матриц",
@@ -230,378 +230,378 @@
   },
   {
     "name": "undeclared_read",
-    "path": "tests/invalid/undeclared_read.mat",
+    "path": "tests/invalid/undeclared_read.txt",
     "kind": "invalid",
     "error": "переменная 'A' не объявлена",
     "description": "Чтение необъявленной переменной"
   },
   {
     "name": "undeclared_assignment",
-    "path": "tests/invalid/undeclared_assignment.mat",
+    "path": "tests/invalid/undeclared_assignment.txt",
     "kind": "invalid",
     "error": "переменная 'A' не объявлена",
     "description": "Присваивание необъявленной переменной"
   },
   {
     "name": "duplicate",
-    "path": "tests/invalid/duplicate.mat",
+    "path": "tests/invalid/duplicate.txt",
     "kind": "invalid",
     "error": "повторное объявление",
     "description": "Повторное объявление"
   },
   {
     "name": "self_initialization",
-    "path": "tests/invalid/self_initialization.mat",
+    "path": "tests/invalid/self_initialization.txt",
     "kind": "invalid",
     "error": "не объявлена",
     "description": "Использование переменной в её первом объявлении"
   },
   {
     "name": "matrix_from_number",
-    "path": "tests/invalid/matrix_from_number.mat",
+    "path": "tests/invalid/matrix_from_number.txt",
     "kind": "invalid",
     "error": "нельзя присвоить значение типа 'число'",
     "description": "Число в матричной переменной"
   },
   {
     "name": "number_from_matrix",
-    "path": "tests/invalid/number_from_matrix.mat",
+    "path": "tests/invalid/number_from_matrix.txt",
     "kind": "invalid",
     "error": "нельзя присвоить значение типа 'матрица'",
     "description": "Матрица в числовой переменной"
   },
   {
     "name": "assignment_type",
-    "path": "tests/invalid/assignment_type.mat",
+    "path": "tests/invalid/assignment_type.txt",
     "kind": "invalid",
     "error": "нельзя присвоить",
     "description": "Несовместимый тип повторного присваивания"
   },
   {
     "name": "transpose_number",
-    "path": "tests/invalid/transpose_number.mat",
+    "path": "tests/invalid/transpose_number.txt",
     "kind": "invalid",
     "error": "ожидает матрицу",
     "description": "Числовой аргумент transpose"
   },
   {
     "name": "transpose_no_args",
-    "path": "tests/invalid/transpose_no_args.mat",
+    "path": "tests/invalid/transpose_no_args.txt",
     "kind": "invalid",
     "error": "ожидает один аргумент, получено 0",
     "description": "Нет аргумента transpose"
   },
   {
     "name": "transpose_two_args",
-    "path": "tests/invalid/transpose_two_args.mat",
+    "path": "tests/invalid/transpose_two_args.txt",
     "kind": "invalid",
     "error": "ожидает один аргумент, получено 2",
     "description": "Два аргумента transpose"
   },
   {
     "name": "det_number",
-    "path": "tests/invalid/det_number.mat",
+    "path": "tests/invalid/det_number.txt",
     "kind": "invalid",
     "error": "ожидает матрицу",
     "description": "Числовой аргумент det"
   },
   {
     "name": "det_no_args",
-    "path": "tests/invalid/det_no_args.mat",
+    "path": "tests/invalid/det_no_args.txt",
     "kind": "invalid",
     "error": "ожидает один аргумент, получено 0",
     "description": "Нет аргумента det"
   },
   {
     "name": "det_two_args",
-    "path": "tests/invalid/det_two_args.mat",
+    "path": "tests/invalid/det_two_args.txt",
     "kind": "invalid",
     "error": "ожидает один аргумент, получено 2",
     "description": "Два аргумента det"
   },
   {
     "name": "rank_number",
-    "path": "tests/invalid/rank_number.mat",
+    "path": "tests/invalid/rank_number.txt",
     "kind": "invalid",
     "error": "ожидает матрицу",
     "description": "Числовой аргумент rank"
   },
   {
     "name": "rank_no_args",
-    "path": "tests/invalid/rank_no_args.mat",
+    "path": "tests/invalid/rank_no_args.txt",
     "kind": "invalid",
     "error": "ожидает один аргумент, получено 0",
     "description": "Нет аргумента rank"
   },
   {
     "name": "rank_two_args",
-    "path": "tests/invalid/rank_two_args.mat",
+    "path": "tests/invalid/rank_two_args.txt",
     "kind": "invalid",
     "error": "ожидает один аргумент, получено 2",
     "description": "Два аргумента rank"
   },
   {
     "name": "inverse_number",
-    "path": "tests/invalid/inverse_number.mat",
+    "path": "tests/invalid/inverse_number.txt",
     "kind": "invalid",
     "error": "ожидает матрицу",
     "description": "Числовой аргумент inverse"
   },
   {
     "name": "inverse_no_args",
-    "path": "tests/invalid/inverse_no_args.mat",
+    "path": "tests/invalid/inverse_no_args.txt",
     "kind": "invalid",
     "error": "ожидает один аргумент, получено 0",
     "description": "Нет аргумента inverse"
   },
   {
     "name": "inverse_two_args",
-    "path": "tests/invalid/inverse_two_args.mat",
+    "path": "tests/invalid/inverse_two_args.txt",
     "kind": "invalid",
     "error": "ожидает один аргумент, получено 2",
     "description": "Два аргумента inverse"
   },
   {
     "name": "unknown_function",
-    "path": "tests/invalid/unknown_function.mat",
+    "path": "tests/invalid/unknown_function.txt",
     "kind": "invalid",
     "error": "неизвестная функция",
     "description": "Неизвестная функция"
   },
   {
     "name": "reserved_function",
-    "path": "tests/invalid/reserved_function.mat",
+    "path": "tests/invalid/reserved_function.txt",
     "kind": "invalid",
     "error": "зарезервировано",
     "description": "Объявление с именем встроенной функции"
   },
   {
     "name": "empty_matrix",
-    "path": "tests/invalid/empty_matrix.mat",
+    "path": "tests/invalid/empty_matrix.txt",
     "kind": "invalid",
     "error": "матрица должна быть непустой",
     "description": "Пустая матрица"
   },
   {
     "name": "empty_row",
-    "path": "tests/invalid/empty_row.mat",
+    "path": "tests/invalid/empty_row.txt",
     "kind": "invalid",
     "error": "строка матрицы должна быть непустой",
     "description": "Пустая первая строка"
   },
   {
     "name": "ragged",
-    "path": "tests/invalid/ragged.mat",
+    "path": "tests/invalid/ragged.txt",
     "kind": "invalid",
     "error": "одинаковое число элементов",
     "description": "Строки разной длины"
   },
   {
     "name": "later_empty_row",
-    "path": "tests/invalid/later_empty_row.mat",
+    "path": "tests/invalid/later_empty_row.txt",
     "kind": "invalid",
     "error": "одинаковое число элементов",
     "description": "Пустая последующая строка"
   },
   {
     "name": "flat_matrix",
-    "path": "tests/invalid/flat_matrix.mat",
+    "path": "tests/invalid/flat_matrix.txt",
     "kind": "invalid",
     "error": "синтаксическая ошибка",
     "description": "Отсутствие скобок строки"
   },
   {
     "name": "non_numeric_element",
-    "path": "tests/invalid/non_numeric_element.mat",
+    "path": "tests/invalid/non_numeric_element.txt",
     "kind": "invalid",
     "error": "синтаксическая ошибка",
     "description": "Переменная вместо числового элемента литерала"
   },
   {
     "name": "expression_element",
-    "path": "tests/invalid/expression_element.mat",
+    "path": "tests/invalid/expression_element.txt",
     "kind": "invalid",
     "error": "синтаксическая ошибка",
     "description": "Выражение внутри литерала"
   },
   {
     "name": "nested_element",
-    "path": "tests/invalid/nested_element.mat",
+    "path": "tests/invalid/nested_element.txt",
     "kind": "invalid",
     "error": "синтаксическая ошибка",
     "description": "Третье измерение"
   },
   {
     "name": "add_shape",
-    "path": "tests/invalid/add_shape.mat",
+    "path": "tests/invalid/add_shape.txt",
     "kind": "invalid",
     "error": "2x3 и 2x2",
     "description": "Несовместимые размеры при операции +"
   },
   {
     "name": "add_mixed",
-    "path": "tests/invalid/add_mixed.mat",
+    "path": "tests/invalid/add_mixed.txt",
     "kind": "invalid",
     "error": "требует два числа или две матрицы",
     "description": "Смешение типов в операции +"
   },
   {
     "name": "subtract_shape",
-    "path": "tests/invalid/subtract_shape.mat",
+    "path": "tests/invalid/subtract_shape.txt",
     "kind": "invalid",
     "error": "2x3 и 2x2",
     "description": "Несовместимые размеры при операции -"
   },
   {
     "name": "subtract_mixed",
-    "path": "tests/invalid/subtract_mixed.mat",
+    "path": "tests/invalid/subtract_mixed.txt",
     "kind": "invalid",
     "error": "требует два числа или две матрицы",
     "description": "Смешение типов в операции -"
   },
   {
     "name": "multiply_shape",
-    "path": "tests/invalid/multiply_shape.mat",
+    "path": "tests/invalid/multiply_shape.txt",
     "kind": "invalid",
     "error": "2x3 и 2x2",
     "description": "Несовместимые размеры при операции *"
   },
   {
     "name": "multiply_mixed",
-    "path": "tests/invalid/multiply_mixed.mat",
+    "path": "tests/invalid/multiply_mixed.txt",
     "kind": "invalid",
     "error": "требует два числа или две матрицы",
     "description": "Смешение типов в операции *"
   },
   {
     "name": "shape_after_assignment",
-    "path": "tests/invalid/shape_after_assignment.mat",
+    "path": "tests/invalid/shape_after_assignment.txt",
     "kind": "invalid",
     "error": "1x2 и 1x1",
     "description": "Учёт размера после присваивания"
   },
   {
     "name": "det_rectangular",
-    "path": "tests/invalid/det_rectangular.mat",
+    "path": "tests/invalid/det_rectangular.txt",
     "kind": "invalid",
     "error": "требует квадратную матрицу",
     "description": "Определитель неквадратной матрицы"
   },
   {
     "name": "inverse_rectangular",
-    "path": "tests/invalid/inverse_rectangular.mat",
+    "path": "tests/invalid/inverse_rectangular.txt",
     "kind": "invalid",
     "error": "требует квадратную матрицу",
     "description": "Обратная неквадратная матрица"
   },
   {
     "name": "semicolon",
-    "path": "tests/invalid/semicolon.mat",
+    "path": "tests/invalid/semicolon.txt",
     "kind": "invalid",
     "error": "синтаксическая ошибка",
     "description": "Нет точки с запятой"
   },
   {
     "name": "parenthesis",
-    "path": "tests/invalid/parenthesis.mat",
+    "path": "tests/invalid/parenthesis.txt",
     "kind": "invalid",
     "error": "синтаксическая ошибка",
     "description": "Незакрытая скобка"
   },
   {
     "name": "trailing_comma",
-    "path": "tests/invalid/trailing_comma.mat",
+    "path": "tests/invalid/trailing_comma.txt",
     "kind": "invalid",
     "error": "синтаксическая ошибка",
     "description": "Лишняя запятая"
   },
   {
     "name": "declaration_without_value",
-    "path": "tests/invalid/declaration_without_value.mat",
+    "path": "tests/invalid/declaration_without_value.txt",
     "kind": "invalid",
     "error": "синтаксическая ошибка",
     "description": "Нет начального значения"
   },
   {
     "name": "print_zero_args",
-    "path": "tests/invalid/print_zero_args.mat",
+    "path": "tests/invalid/print_zero_args.txt",
     "kind": "invalid",
     "error": "синтаксическая ошибка",
     "description": "Нет аргумента print"
   },
   {
     "name": "print_two_args",
-    "path": "tests/invalid/print_two_args.mat",
+    "path": "tests/invalid/print_two_args.txt",
     "kind": "invalid",
     "error": "синтаксическая ошибка",
     "description": "Лишний аргумент print"
   },
   {
     "name": "division",
-    "path": "tests/invalid/division.mat",
+    "path": "tests/invalid/division.txt",
     "kind": "invalid",
     "error": "лексическая ошибка",
     "description": "Неподдерживаемый оператор /"
   },
   {
     "name": "bad_character",
-    "path": "tests/invalid/bad_character.mat",
+    "path": "tests/invalid/bad_character.txt",
     "kind": "invalid",
     "error": "лексическая ошибка",
     "description": "Недопустимый символ"
   },
   {
     "name": "cyrillic_identifier",
-    "path": "tests/invalid/cyrillic_identifier.mat",
+    "path": "tests/invalid/cyrillic_identifier.txt",
     "kind": "invalid",
     "error": "лексическая ошибка",
     "description": "Не ASCII идентификатор"
   },
   {
     "name": "unterminated_comment",
-    "path": "tests/invalid/unterminated_comment.mat",
+    "path": "tests/invalid/unterminated_comment.txt",
     "kind": "invalid",
     "error": "незавершённый комментарий",
     "description": "Незакрытый комментарий"
   },
   {
     "name": "float_overflow_literal",
-    "path": "tests/invalid/float_overflow_literal.mat",
+    "path": "tests/invalid/float_overflow_literal.txt",
     "kind": "invalid",
     "error": "вне допустимого диапазона",
     "description": "Литерал слишком большой"
   },
   {
     "name": "float_underflow_literal",
-    "path": "tests/invalid/float_underflow_literal.mat",
+    "path": "tests/invalid/float_underflow_literal.txt",
     "kind": "invalid",
     "error": "вне допустимого диапазона",
     "description": "Литерал исчезает до нуля"
   },
   {
     "name": "invalid_exponent",
-    "path": "tests/invalid/invalid_exponent.mat",
+    "path": "tests/invalid/invalid_exponent.txt",
     "kind": "invalid",
     "error": "синтаксическая ошибка",
     "description": "Незавершённая экспонента"
   },
   {
     "name": "hex_literal",
-    "path": "tests/invalid/hex_literal.mat",
+    "path": "tests/invalid/hex_literal.txt",
     "kind": "invalid",
     "error": "синтаксическая ошибка",
     "description": "Шестнадцатеричный литерал"
   },
   {
     "name": "nul_byte",
-    "path": "tests/invalid/nul_byte.mat",
+    "path": "tests/invalid/nul_byte.txt",
     "kind": "invalid",
     "error": "нулевой байт",
     "description": "Нулевой байт"
   },
   {
     "name": "too_deep",
-    "path": "tests/invalid/too_deep.mat",
+    "path": "tests/invalid/too_deep.txt",
     "kind": "invalid",
     "error": "глубина выражения",
     "description": "Ограничение глубины AST"

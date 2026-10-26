@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-"""Black-box acceptance tests. Uses the current Python interpreter for generated code."""
 import argparse
 import json
 import math
@@ -26,7 +24,7 @@ def main():
     for stream in (sys.stdout, sys.stderr):
         if hasattr(stream, 'reconfigure'):
             stream.reconfigure(encoding='utf-8', errors='backslashreplace')
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description='Matrix Translator acceptance tests.')
     parser.add_argument('--translator', type=Path, default=ROOT/'bin'/('translator.exe' if os.name == 'nt' else 'translator'))
     parser.add_argument('--report', type=Path)
     options = parser.parse_args()
@@ -87,15 +85,15 @@ def main():
                 return dict(stdout=result.stdout, stderr=result.stderr)
             record(name, action)
 
-        source = folder/'input.mat'
+        source = folder/'input.txt'
         source.write_text('print(42);', encoding='utf-8')
-        cli('cli_no_arguments', [], 2, 'translator input.mat -o output.py')
+        cli('cli_no_arguments', [], 2, 'translator input.txt -o output.py')
         cli('cli_missing_output', [source], 2, 'Использование')
         cli('cli_wrong_switch', [source, '--output', folder/'bad.py'], 2, 'Использование')
         cli('cli_unknown_option', ['--unknown'], 2, 'Использование')
         cli('cli_help', ['--help'], 0, 'Использование')
         cli('cli_version', ['--version'], 0, '1.0.0')
-        cli('cli_missing_file', [folder/'missing.mat', '-o', folder/'missing.py'], 3, 'входной файл')
+        cli('cli_missing_file', [folder/'missing.txt', '-o', folder/'missing.py'], 3, 'входной файл')
         cli('cli_read_directory', [folder, '-o', folder/'directory.py'], 3, 'входной файл')
         cli('cli_missing_output_directory', [source, '-o', folder/'absent'/'out.py'], 3, 'выходной файл')
         cli('cli_output_is_directory', [source, '-o', folder], 3, 'выходной файл')
@@ -103,7 +101,7 @@ def main():
         check(source.read_text(encoding='utf-8') == 'print(42);', 'input was modified')
 
         def hardlink():
-            target = folder/'input-alias.mat'
+            target = folder/'input-alias.txt'
             os.link(source, target)
             result = execute([translator, source, '-o', target])
             check(result.returncode == 3, 'hardlink not detected')
@@ -113,7 +111,7 @@ def main():
         def utf8_paths():
             subfolder = folder/'папка с пробелами'
             subfolder.mkdir()
-            name = "исходный 'текст'.mat"
+            name = "исходный 'текст'.txt"
             input_path = subfolder/name
             input_path.write_bytes(b'\xef\xbb\xbf'+ '// Русский комментарий\r\nprint(rank([[1]]));\r\n'.encode('utf-8'))
             output_path = subfolder/'готовая программа.py'
@@ -124,7 +122,7 @@ def main():
         record('utf8_bom_crlf_paths', utf8_paths)
 
         def unicode_column():
-            input_path = folder/'column.mat'
+            input_path = folder/'column.txt'
             input_path.write_text('/* привет */\tprint(A);', encoding='utf-8')
             result = execute([translator, input_path, '-o', folder/'column.py'])
             check(result.returncode == 1 and ':1:20:' in result.stderr, result.stderr)
@@ -133,7 +131,7 @@ def main():
         record('unicode_comment_error_column', unicode_column)
 
         def runtime_error_legacy_encoding():
-            input_path = folder/'legacy-encoding.mat'
+            input_path = folder/'legacy-encoding.txt'
             output_path = folder/'legacy-encoding.py'
             input_path.write_text('print(inverse([[0]]));', encoding='utf-8')
             translated = execute([translator, input_path, '-o', output_path])
@@ -158,7 +156,7 @@ def main():
         record('successful_output_replacement', replace_output)
 
         def limit():
-            large = folder/'large.mat'
+            large = folder/'large.txt'
             with large.open('wb') as file:
                 file.write(b' '*(16*1024*1024+1))
             result = execute([translator, large, '-o', folder/'large.py'])
@@ -167,7 +165,7 @@ def main():
         record('input_size_limit', limit)
 
         def token_limit():
-            token_file = folder/'tokens.mat'
+            token_file = folder/'tokens.txt'
             token_file.write_text('print(1);\n'*21000, encoding='utf-8')
             result = execute([translator, token_file, '-o', folder/'tokens.py'])
             check(result.returncode == 1 and '100000 токенов' in result.stderr, result.stderr)
@@ -175,7 +173,7 @@ def main():
         record('token_count_limit', token_limit)
 
         def inverse_residual():
-            matrix_source = folder/'residual.mat'
+            matrix_source = folder/'residual.txt'
             matrix_source.write_text('matrix A=[[4,1,2],[1,3,0],[2,0,5]]; print(A*inverse(A));', encoding='utf-8')
             output = folder/'residual.py'
             result = execute([translator, matrix_source, '-o', output])

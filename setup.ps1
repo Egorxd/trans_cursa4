@@ -8,6 +8,6 @@ try {
     }
     & .\.venv\Scripts\python.exe -m pip install -r requirements.txt
     if ($LASTEXITCODE -ne 0) { throw 'Dependency installation failed' }
-    & .\.venv\Scripts\python.exe -c 'import numpy; print("NumPy " + numpy.__version__)'
+    & .\.venv\Scripts\python.exe -c 'import numpy; print(numpy.__name__, numpy.__version__)'
     if ($LASTEXITCODE -ne 0) { throw 'NumPy check failed' }
 } finally { Pop-Location }

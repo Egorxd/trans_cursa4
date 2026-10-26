@@ -1,1 +1,0 @@
-Трансляция завершена: examples/singular_error.py

@@ -121,7 +121,6 @@ int analyze(List *statements) {
             s = arena_alloc(sizeof(*s)); s->name = stmt->name; s->type = stmt->declared;
             s->id = symbol_count++; s->next = symbols; symbols = s;
         }
-        /* A whole-matrix assignment may change dimensions; later uses see the new shape. */
         s->rows = stmt->value->rows; s->cols = stmt->value->cols; stmt->symbol = s->id;
     }
     return 1;

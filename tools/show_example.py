@@ -1,11 +1,10 @@
-"""Run the translated example with captions for its print commands."""
 import ast
 from pathlib import Path
 import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / 'examples/input.mat'
+SOURCE = ROOT / 'examples/input.txt'
 OUTPUT = ROOT / 'examples/output.py'
 
 def main():
@@ -20,7 +19,6 @@ def main():
     def statement(line, column):
         return (lines[line - 1][column - 1:] + ''.join(lines[line:])).split(';', 1)[0].strip()
 
-    # Positions stored in the generated code identify the original commands.
     for node in ast.walk(tree):
         if not isinstance(node, ast.Assign) or not isinstance(node.value, ast.Call):
             continue

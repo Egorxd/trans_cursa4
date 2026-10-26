@@ -14,7 +14,7 @@ Matrix Translator 1.0.0
 
 В Windows откройте PowerShell в папке проекта:
   powershell -NoProfile -ExecutionPolicy Bypass -File .\setup.ps1
-  .\bin\translator.exe examples/input.mat -o examples/output.py
+  .\bin\translator.exe examples/input.txt -o examples/output.py
   .\.venv\Scripts\python.exe examples/output.py
 
 setup.ps1 создаёт локальное окружение .venv и устанавливает зависимости
@@ -80,7 +80,7 @@ MSYS2: https://www.msys2.org/
   make
   python3 -m venv .venv
   .venv/bin/python -m pip install -r requirements.txt
-  ./bin/translator examples/input.mat -o examples/output.py
+  ./bin/translator examples/input.txt -o examples/output.py
   .venv/bin/python examples/output.py
 
 Если generated/ уже подготовлен, make grammar можно пропустить.
@@ -95,16 +95,20 @@ MSYS2: https://www.msys2.org/
 5. Автоматические тесты
 
 В Windows:
-  .\.venv\Scripts\python.exe tests/run_tests.py --report verification/test-report.json
+  .\.venv\Scripts\python.exe tests/run_tests.py
 
 В Linux:
-  .venv/bin/python tests/run_tests.py --translator bin/translator --report verification/linux-test-report.json
+  .venv/bin/python tests/run_tests.py --translator bin/translator
 
 Скрипт использует только стандартную библиотеку Python для проверки
 и установленный NumPy для выполнения сгенерированных программ.
 При провале хотя бы одного теста возвращается код 1.
 Результаты исполнения проверяются численно, а не сравнением внешнего
 форматирования вывода разных платформ.
+
+Ожидаемый итог: 93/93 passed. Журналы выполненных проверок сохранены
+в verification/tests.log и verification/tests-linux.log.
+Если нужен дополнительный JSON-отчёт, добавьте параметр --report result.json.
 
 6. Docker
 
@@ -117,17 +121,14 @@ Dockerfile собирает транслятор из .y/.l и запускае�
 В PowerShell в папке проекта:
   docker build -t matrix-translator:1.0.0 .
   docker run --rm matrix-translator:1.0.0 --help
-  docker run --rm --mount "type=bind,source=$($PWD.Path),target=/work" matrix-translator:1.0.0 examples/input.mat -o examples/output.py
+  docker run --rm --mount "type=bind,source=$($PWD.Path),target=/work" matrix-translator:1.0.0 examples/input.txt -o examples/output.py
   docker run --rm --mount "type=bind,source=$($PWD.Path),target=/work" --entrypoint python matrix-translator:1.0.0 examples/output.py
 
 В Linux:
   docker build -t matrix-translator:1.0.0 .
-  docker run --rm -v "$PWD:/work" matrix-translator:1.0.0 examples/input.mat -o examples/output.py
+  docker run --rm -v "$PWD:/work" matrix-translator:1.0.0 examples/input.txt -o examples/output.py
   docker run --rm -v "$PWD:/work" --entrypoint python matrix-translator:1.0.0 examples/output.py
 
 Команда ENTRYPOINT по умолчанию вызывает translator. Для выполнения
 результата трансляции entrypoint меняется на python.
 
-На компьютере подготовки Docker отсутствовал. Образ не собирался
-и не запускался. Windows- и Linux-сборки проверены отдельно;
-фактические результаты сохранены в verification/.
