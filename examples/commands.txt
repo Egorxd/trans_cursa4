@@ -1,7 +1,0 @@
-Windows PowerShell (из папки проекта)
-.\bin\translator.exe examples/input.txt -o examples/output.py
-.\.venv\Scripts\python.exe examples/output.py
-
-Linux (из папки проекта)
-./bin/translator examples/input.txt -o examples/output.py
-.venv/bin/python examples/output.py
