@@ -1,7 +1,6 @@
 bin
 .git
 verification
-docs
 *.zip
 __pycache__
 .venv

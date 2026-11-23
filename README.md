@@ -34,4 +34,4 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\setup.ps1
 
 Для сборки используйте `src/` с кодом на C и заголовком, `grammar/` с правилами Flex и Bison и `generated/` с готовыми исходниками анализаторов. Команды сборки находятся в `build.ps1`, `Makefile` и `Dockerfile`. Набор проверок находится в `tests/`.
 
-Для запуска используйте `bin/translator.exe` в Windows x64 или `bin/translator` в Linux x86_64. Для полученных программ установите зависимости из `requirements.txt` по справке. В `examples/` лежат входной файл, полученный код и дампы вывода. В `verification/` лежат журналы тестов, в `docs/` находится исходное техническое задание.
+Для запуска используйте `bin/translator.exe` в Windows x64 или `bin/translator` в Linux x86_64. Для полученных программ установите зависимости из `requirements.txt` по справке. В `examples/` лежат входной файл, полученный код и дампы вывода. Журналы тестов находятся в `verification/`.
